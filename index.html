@@ -83,19 +83,19 @@
             box-shadow: 4px 4px 0px var(--electric-purple);
         }
 
-        /* Two-Column Layout Wrapper */
+        /* Centered Single-Column Layout */
         .layout-wrapper {
-            max-width: 1300px;
+            max-width: 900px; /* Restricts the page to a nice, readable width */
             margin: 3rem auto;
             padding: 0 1.5rem;
             display: flex;
             flex-direction: column; 
             gap: 3rem;
+            align-items: center;
         }
 
-        .left-column {
-            flex-grow: 1;
-            min-width: 0; 
+        .content-block {
+            width: 100%;
         }
 
         /* Department Photo Grid */
@@ -206,196 +206,7 @@
             display: block;
         }
 
-        /* --- RIGHT COLUMN: The Action Form --- */
-        .right-column {
-            order: -1; /* Mobile First: Form on top */
-        }
-
         /* Sticky Container for Desktop */
         .sticky-form-container {
-            background-color: var(--pure-white); /* Updated to white background */
+            background-color: var(--pure-white); 
             border: 6px solid var(--heavy-black);
-            padding: 2.5rem 1.5rem;
-            box-shadow: 12px 12px 0px var(--electric-purple);
-        }
-
-        .sticky-form-container h2 {
-            color: var(--heavy-black);
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 0px var(--pure-white);
-        }
-
-        .form-highlight {
-            text-align: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .form-highlight span {
-            background-color: var(--heavy-black);
-            color: var(--alert-yellow);
-            font-weight: 900;
-            padding: 8px 20px;
-            font-size: 1.1rem;
-            display: inline-block;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transform: rotate(1deg);
-        }
-        
-        .action-text {
-            font-family: 'Segoe UI', sans-serif;
-            font-weight: 700;
-            font-size: 1.1rem;
-            text-align: center;
-            margin-bottom: 2rem;
-            background: var(--bg-gray);
-            padding: 15px;
-            border: 3px solid var(--heavy-black);
-        }
-
-        /* Form Wrapper styling to protect the injected form */
-        .form-wrapper {
-            background: var(--pure-white);
-            padding: 15px;
-            border: 4px solid var(--heavy-black);
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 3rem;
-            background-color: var(--heavy-black);
-            color: var(--pure-white);
-            font-family: 'Segoe UI', sans-serif;
-            font-weight: bold;
-            font-size: 1rem;
-            margin-top: 4rem;
-            border-top: 8px solid var(--alert-yellow);
-        }
-
-        /* --- DESKTOP STYLES (Min-width: 992px) --- */
-        @media (min-width: 992px) {
-            .layout-wrapper {
-                flex-direction: row; 
-                align-items: flex-start;
-                gap: 2rem; /* Reduced gap to give more room for the wider form */
-            }
-
-            .left-column {
-                flex: 1 1 50%;
-            }
-
-            .right-column {
-                order: 0; 
-                flex: 1 1 50%;
-                max-width: 600px; /* Increased from 500px to allow a wider form on desktop */
-                position: sticky;
-                top: 2rem; 
-            }
-        }
-
-        /* Small mobile tweaks to give the form more width */
-        @media (max-width: 768px) {
-            .layout-wrapper { 
-                padding: 0 0.5rem; /* Reclaim edge space */
-            }
-            .sticky-form-container { 
-                padding: 1.5rem 0.5rem; /* Reduce heavy internal padding */
-                border-width: 4px;
-                box-shadow: 8px 8px 0px var(--electric-purple);
-            }
-            .form-wrapper {
-                padding: 5px; /* Reduce inner wrapper padding */
-                border-width: 3px;
-            }
-            .photo-banner { grid-template-columns: repeat(2, 1fr); }
-            .subtitle { font-size: 1rem; transform: rotate(0); padding: 8px 15px;}
-            .card { padding: 1.5rem; }
-            .issues-box { padding: 1.5rem; }
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <div class="pre-header">WE ARE HOLLISTER</div>
-        <h1>Protect Hollister<br>Public Services</h1>
-        <div class="group-photo-container" style="max-width: 800px; margin: 2rem auto;">
-            <img src="hollister.jpg" alt="SEIU Local 521 Stronger Together">
-        </div>
-        <div class="subtitle">ADD YOUR NAME IN LESS THAN 1 MINUTE!</div>
-    </header>
-
-    <div class="layout-wrapper">
-        
-        <!-- ================= LEFT COLUMN ================= -->
-        <div class="left-column">
-            
-            <!-- Department Faces Banner -->
-            <div class="photo-banner">
-                <figure><img src="planning.jpeg" alt="Planning"><figcaption>Planning</figcaption></figure>
-                <figure><img src="sanitation.jpeg" alt="Sanitation & Storm"><figcaption>Sanitation</figcaption></figure>
-                <figure><img src="airport.jpeg" alt="Airport"><figcaption>Airport</figcaption></figure>
-                <figure><img src="streets.jpeg" alt="Streets"><figcaption>Streets</figcaption></figure>
-                <figure><img src="ssas.jpeg" alt="Admin"><figcaption>Admin</figcaption></figure>
-            </div>
-
-            <!-- Introduction -->
-            <div class="card intro-text">
-                <p><span class="highlight-text">CITY OF HOLLISTER EMPLOYEES</span><br> are the backbone of our community.</p>
-                <p>The budget deficit is a result of years of mismanagement being made worse by plans to aggressively remake local government without genuinely including the city's workforce or our community in substantiative discussions.</p>
-                <p style="font-size: 1.4rem; color: var(--electric-purple); font-weight: 800;">City employees have helped the city balance its budget in 2025 and they are willing to do it again.</p>
-            </div>
-
-            <!-- The Issues -->
-            <div class="issues-box">
-                <h2>But it is difficult to do when:</h2>
-                <ul class="issues-list">
-                    <li>The city is hiring <strong>upper management positions</strong> while reducing the workforce that provides essential community services.</li>
-                    <li>The city has made comments about <strong>subcontracting Animal Services</strong> and potentially <strong>outsourcing our water department</strong>.</li>
-                    <li>City council has not made it clear whether there is a <strong>conflict of interest</strong> with the City Manager owning the <em>Muni Talent, Inc.</em> company and recruiting for city positions on her website.</li>
-                </ul>
-            </div>
-
-        </div>
-
-        <!-- ================= RIGHT COLUMN (STICKY FORM) ================= -->
-        <div class="right-column">
-            <div class="sticky-form-container">
-                <h2>TAKE ACTION NOW</h2>
-                
-                <div class="form-highlight">
-                    <span>⏳ IT TAKES LESS THAN ONE MINUTE</span>
-                </div>
-                
-                <div class="action-text">
-                    Send an automated advocacy letter to the City Council to prioritize our community and employees.
-                </div>
-                
-                <!-- Embedded EveryAction Form Wrapper -->
-                <div class="form-wrapper">
-                    <div class="ngp-form"
-                         data-form-url="https://advocator.ngpvan.com/https%3a%2f%2fsecure.ngpvan.com%2fv1%2fForms%2fCgVEKRu5mkWI2-Rvv1f0hg2/ngpForm"
-                         data-custom-css='https://nvlupin.blob.core.windows.net/designs/CustomStylesheet_1dba44432beaaa3f4eb088e6527488df22ada213fb31b1a0ed925a394bc15367.css'
-                         data-fastaction-endpoint="https://fastaction.ngpvan.com"
-                         data-inline-errors="true"
-                         data-fastaction-nologin="true"
-                         data-mobile-autofocus="false">
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-    </div>
-
-    <footer>
-        <p>PROTECT HOLLISTER PUBLIC SERVICES</p>
-        <p style="color: #999; font-weight: normal;">Built for the community, by the community.</p>
-    </footer>
-
-</body>
-</html>
-```
