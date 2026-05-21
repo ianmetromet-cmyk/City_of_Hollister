@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URGENT: Protect Hollister Public Services</title>
+    
+    <!-- EveryAction Form Scripts & Styles -->
+    <link rel='preload' href='https://static.everyaction.com/ea-actiontag/at.js' as='script' crossorigin='anonymous'>
+    <link rel='preload' href='https://static.everyaction.com/ea-actiontag/at.min.css' as='style'>
+    <script type='text/javascript' src='https://static.everyaction.com/ea-actiontag/at.js' crossorigin='anonymous'></script>
+    <link rel='preload' href='https://nvlupin.blob.core.windows.net/designs/CustomStylesheet_1dba44432beaaa3f4eb088e6527488df22ada213fb31b1a0ed925a394bc15367.css' as='style'>
+
+    <style>
+        /* High-Impact Color Palette */
+        :root {
+            --electric-purple: #5b0bb5;
+            --alert-yellow: #FFDE00;
+            --heavy-black: #090909;
+            --pure-white: #ffffff;
+            --bg-gray: #f0f0f0;
+        }
+
+        /* Global Styles */
+        body {
+            font-family: 'Arial Black', Impact, 'Segoe UI Black', sans-serif;
+            line-height: 1.5;
+            color: var(--heavy-black);
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-gray);
+            background-image: radial-gradient(#d5d5d5 1px, transparent 0);
+            background-size: 20px 20px;
+        }
+
+        h1, h2, h3 {
+            line-height: 1.1;
+            margin-top: 0;
+            text-transform: uppercase;
+        }
+
+        p, li {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-weight: 600;
+        }
+
+        /* Header Section - Bold & Aggressive */
+        header {
+            background-color: var(--pure-white);
+            color: var(--heavy-black);
+            text-align: center;
+            padding: 3rem 1rem;
+            border-bottom: 8px solid var(--heavy-black);
+        }
+
+        .pre-header {
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 900;
+            letter-spacing: -2px;
+            margin-bottom: 5px;
+            color: var(--heavy-black);
+            text-transform: uppercase;
+            text-shadow: 4px 4px 0px var(--alert-yellow);
+            line-height: 1;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            letter-spacing: 0px;
+            text-shadow: none;
+            font-weight: 800;
+        }
+
+        .subtitle {
+            background-color: var(--heavy-black);
+            color: var(--alert-yellow);
+            display: inline-block;
+            padding: 10px 25px;
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            margin-top: 20px;
+            transform: rotate(-2deg);
+            box-shadow: 4px 4px 0px var(--electric-purple);
+        }
+
+        /* Two-Column Layout Wrapper */
+        .layout-wrapper {
+            max-width: 1300px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+            display: flex;
+            flex-direction: column; 
+            gap: 3rem;
+        }
+
+        .left-column {
+            flex-grow: 1;
+            min-width: 0; 
+        }
+
+        /* Department Photo Grid */
+        .photo-banner {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+            margin-bottom: 3rem;
+        }
+
+        .photo-banner figure {
+            margin: 0;
+            position: relative;
+            border: 4px solid var(--heavy-black);
+            box-shadow: 5px 5px 0px var(--heavy-black);
+            background: var(--pure-white);
+            transition: transform 0.2s;
+        }
+
+        .photo-banner figure:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 8px 8px 0px var(--electric-purple);
+        }
+
+        .photo-banner img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .photo-banner figcaption {
+            background: var(--alert-yellow);
+            color: var(--heavy-black);
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 8px 0;
+            font-weight: 900;
+            border-top: 4px solid var(--heavy-black);
+            text-transform: uppercase;
+        }
+
+        /* Text Cards - Brutalist Style */
+        .card {
+            background: var(--pure-white);
+            padding: 2.5rem;
+            border: 5px solid var(--heavy-black);
+            box-shadow: 8px 8px 0px var(--heavy-black);
+            margin-bottom: 2.5rem;
+        }
+
+        .intro-text p {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight-text {
+            background-color: var(--electric-purple);
+            color: var(--pure-white);
+            padding: 2px 8px;
+            font-size: 1.4rem;
+            display: inline;
+        }
+
+        /* The Issues Box */
+        .issues-box {
+            background-color: var(--pure-white);
+            color: var(--heavy-black);
+            border: 5px solid var(--heavy-black);
+            box-shadow: 8px 8px 0px var(--electric-purple);
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .issues-box h2 {
+            color: var(--electric-purple);
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .issues-list {
+            padding-left: 1.2rem;
+            font-size: 1.2rem;
+        }
+
+        .issues-list li {
+            margin-bottom: 1.5rem;
+        }
+
+        .issues-list strong {
+            color: var(--electric-purple);
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Large Group Photo */
+        .group-photo-container {
+            margin-top: 2rem;
+            border: 6px solid var(--heavy-black);
+            box-shadow: 10px 10px 0px var(--electric-purple);
+            background: var(--pure-white);
+            padding: 10px;
+        }
+        
+        .group-photo-container img {
+            width: 100%;
+            display: block;
+        }
+
+        /* --- RIGHT COLUMN: The Action Form --- */
+        .right-column {
+            order: -1; /* Mobile First: Form on top */
+        }
+
+        /* Sticky Container for Desktop */
+        .sticky-form-container {
+            background-color: var(--pure-white); /* Updated to white background */
+            border: 6px solid var(--heavy-black);
+            padding: 2.5rem 1.5rem;
+            box-shadow: 12px 12px 0px var(--electric-purple);
+        }
+
+        .sticky-form-container h2 {
+            color: var(--heavy-black);
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 0px var(--pure-white);
+        }
+
+        .form-highlight {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-highlight span {
+            background-color: var(--heavy-black);
+            color: var(--alert-yellow);
+            font-weight: 900;
+            padding: 8px 20px;
+            font-size: 1.1rem;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transform: rotate(1deg);
+        }
+        
+        .action-text {
+            font-family: 'Segoe UI', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            background: var(--bg-gray);
+            padding: 15px;
+            border: 3px solid var(--heavy-black);
+        }
+
+        /* Form Wrapper styling to protect the injected form */
+        .form-wrapper {
+            background: var(--pure-white);
+            padding: 15px;
+            border: 4px solid var(--heavy-black);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem;
+            background-color: var(--heavy-black);
+            color: var(--pure-white);
+            font-family: 'Segoe UI', sans-serif;
+            font-weight: bold;
+            font-size: 1rem;
+            margin-top: 4rem;
+            border-top: 8px solid var(--alert-yellow);
+        }
+
+        /* --- DESKTOP STYLES (Min-width: 992px) --- */
+        @media (min-width: 992px) {
+            .layout-wrapper {
+                flex-direction: row; 
+                align-items: flex-start; 
+            }
+
+            .left-column {
+                flex: 1 1 55%;
+            }
+
+            .right-column {
+                order: 0; 
+                flex: 0 0 45%;
+                max-width: 500px;
+                position: sticky;
+                top: 2rem; 
+            }
+        }
+
+        /* Small mobile tweaks */
+        @media (max-width: 768px) {
+            .photo-banner { grid-template-columns: repeat(2, 1fr); }
+            .subtitle { font-size: 1rem; transform: rotate(0); padding: 8px 15px;}
+            .card { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="pre-header">WE ARE HOLLISTER</div>
+        <h1>Protect Hollister<br>Public Services</h1>
+        <div class="subtitle">ADD YOUR NAME IN LESS THAN 1 MINUTE!</div>
+    </header>
+
+    <div class="layout-wrapper">
+        
+        <!-- ================= LEFT COLUMN ================= -->
+        <div class="left-column">
+            
+            <!-- Department Faces Banner -->
+            <div class="photo-banner">
+                <figure><img src="Planning.jpg" alt="Planning"><figcaption>Planning</figcaption></figure>
+                <figure><img src="Sanitation Storm.jpg" alt="Sanitation & Storm"><figcaption>Sanitation</figcaption></figure>
+                <figure><img src="Airport.jpg" alt="Airport"><figcaption>Airport</figcaption></figure>
+                <figure><img src="Streets.jpg" alt="Streets"><figcaption>Streets</figcaption></figure>
+                <figure><img src="SSAs.jpg" alt="Admin"><figcaption>Admin</figcaption></figure>
+            </div>
+
+            <!-- Introduction -->
+            <div class="card intro-text">
+                <p><span class="highlight-text">CITY OF HOLLISTER EMPLOYEES</span><br> are the backbone of our community.</p>
+                <p>The budget deficit is a result of years of mismanagement being made worse by plans to aggressively remake local government without genuinely including the city's workforce or our community in substantiative discussions.</p>
+                <p style="font-size: 1.4rem; color: var(--electric-purple); font-weight: 800;">City employees have helped the city balance its budget in 2025 and they are willing to do it again.</p>
+            </div>
+
+            <!-- The Issues -->
+            <div class="issues-box">
+                <h2>But it is difficult to do when:</h2>
+                <ul class="issues-list">
+                    <li>The city is hiring <strong>upper management positions</strong> while reducing the workforce that provides essential community services.</li>
+                    <li>The city has made comments about <strong>subcontracting Animal Services</strong> and potentially <strong>outsourcing our water department</strong>.</li>
+                    <li>City council has not made it clear whether there is a <strong>conflict of interest</strong> with the City Manager owning the <em>Muni Talent, Inc.</em> company and recruiting for city positions on her website.</li>
+                </ul>
+            </div>
+
+            <!-- Group Photo -->
+            <div class="group-photo-container">
+                <img src="hollister.jpg" alt="SEIU Local 521 Stronger Together">
+            </div>
+
+        </div>
+
+        <!-- ================= RIGHT COLUMN (STICKY FORM) ================= -->
+        <div class="right-column">
+            <div class="sticky-form-container">
+                <h2>TAKE ACTION NOW</h2>
+                
+                <div class="form-highlight">
+                    <span>⏳ IT TAKES LESS THAN ONE MINUTE</span>
+                </div>
+                
+                <div class="action-text">
+                    Send an automated advocacy letter to the City Council to prioritize our community and employees.
+                </div>
+                
+                <!-- Embedded EveryAction Form Wrapper -->
+                <div class="form-wrapper">
+                    <div class="ngp-form"
+                         data-form-url="https://advocator.ngpvan.com/https%3a%2f%2fsecure.ngpvan.com%2fv1%2fForms%2fCgVEKRu5mkWI2-Rvv1f0hg2/ngpForm"
+                         data-custom-css='https://nvlupin.blob.core.windows.net/designs/CustomStylesheet_1dba44432beaaa3f4eb088e6527488df22ada213fb31b1a0ed925a394bc15367.css'
+                         data-fastaction-endpoint="https://fastaction.ngpvan.com"
+                         data-inline-errors="true"
+                         data-fastaction-nologin="true"
+                         data-mobile-autofocus="false">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>PROTECT HOLLISTER PUBLIC SERVICES</p>
+        <p style="color: #999; font-weight: normal;">Built for the community, by the community.</p>
+    </footer>
+
+</body>
+</html>
