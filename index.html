@@ -1,3 +1,14 @@
+You are absolutely right. The reason the form is becoming "very long and slim," especially on mobile devices, is because of all the nested padding and borders we have wrapped around it. 
+
+On a small mobile screen, the layout wrapper padding + the sticky container padding + the thick borders + the form wrapper padding were eating up almost **150 pixels of horizontal space** just in margins alone! This forced the EveryAction form to squish everything into a tiny column, stretching it super far down the page.
+
+To fix this, I have done two things:
+1. **On Mobile:** Stripped out a ton of the decorative padding and border widths strictly for mobile screens, giving the form wrapper almost the full width of the phone screen. 
+2. **On Desktop:** Increased the form column's max-width from `500px` to `600px` and adjusted the column ratios so the form has much more breathing room. This wider space usually allows complex forms to put fields side-by-side (like First Name / Last Name), naturally shortening the vertical length!
+
+Here is your updated and fully finalized code. Copy and paste this into your `index.html` on GitHub to see the wider, more mobile-friendly form layout:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -279,27 +290,41 @@
         @media (min-width: 992px) {
             .layout-wrapper {
                 flex-direction: row; 
-                align-items: flex-start; 
+                align-items: flex-start;
+                gap: 2rem; /* Reduced gap to give more room for the wider form */
             }
 
             .left-column {
-                flex: 1 1 55%;
+                flex: 1 1 50%;
             }
 
             .right-column {
                 order: 0; 
-                flex: 0 0 45%;
-                max-width: 500px;
+                flex: 1 1 50%;
+                max-width: 600px; /* Increased from 500px to allow a wider form on desktop */
                 position: sticky;
                 top: 2rem; 
             }
         }
 
-        /* Small mobile tweaks */
+        /* Small mobile tweaks to give the form more width */
         @media (max-width: 768px) {
+            .layout-wrapper { 
+                padding: 0 0.5rem; /* Reclaim edge space */
+            }
+            .sticky-form-container { 
+                padding: 1.5rem 0.5rem; /* Reduce heavy internal padding */
+                border-width: 4px;
+                box-shadow: 8px 8px 0px var(--electric-purple);
+            }
+            .form-wrapper {
+                padding: 5px; /* Reduce inner wrapper padding */
+                border-width: 3px;
+            }
             .photo-banner { grid-template-columns: repeat(2, 1fr); }
             .subtitle { font-size: 1rem; transform: rotate(0); padding: 8px 15px;}
             .card { padding: 1.5rem; }
+            .issues-box { padding: 1.5rem; }
         }
     </style>
 </head>
@@ -321,11 +346,11 @@
             
             <!-- Department Faces Banner -->
             <div class="photo-banner">
-                <figure><img src="planning.jpg" alt="Planning"><figcaption>Planning</figcaption></figure>
-                <figure><img src="sanitation.jpg" alt="Sanitation & Storm"><figcaption>Sanitation</figcaption></figure>
-                <figure><img src="airport.jpg" alt="Airport"><figcaption>Airport</figcaption></figure>
-                <figure><img src="streets.jpg" alt="Streets"><figcaption>Streets</figcaption></figure>
-                <figure><img src="ssas.jpg" alt="Admin"><figcaption>Admin</figcaption></figure>
+                <figure><img src="planning.jpeg" alt="Planning"><figcaption>Planning</figcaption></figure>
+                <figure><img src="sanitation.jpeg" alt="Sanitation & Storm"><figcaption>Sanitation</figcaption></figure>
+                <figure><img src="airport.jpeg" alt="Airport"><figcaption>Airport</figcaption></figure>
+                <figure><img src="streets.jpeg" alt="Streets"><figcaption>Streets</figcaption></figure>
+                <figure><img src="ssas.jpeg" alt="Admin"><figcaption>Admin</figcaption></figure>
             </div>
 
             <!-- Introduction -->
@@ -344,8 +369,6 @@
                     <li>City council has not made it clear whether there is a <strong>conflict of interest</strong> with the City Manager owning the <em>Muni Talent, Inc.</em> company and recruiting for city positions on her website.</li>
                 </ul>
             </div>
-
-
 
         </div>
 
@@ -386,3 +409,4 @@
 
 </body>
 </html>
+```
