@@ -1,3 +1,8 @@
+Here is the fully finalized code, complete with standard file paths (no base64 embedding) and your requested layout adjustments for the group photo! 
+
+Just copy and paste this into your `index.html` file, save it alongside all 6 of your `.jpeg` images, and you'll be good to upload it to your web server:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -308,6 +313,9 @@
     <header>
         <div class="pre-header">WE ARE HOLLISTER</div>
         <h1>Protect Hollister<br>Public Services</h1>
+        <div class="group-photo-container" style="max-width: 800px; margin: 2rem auto;">
+            <img src="hollister.jpeg" alt="SEIU Local 521 Stronger Together">
+        </div>
         <div class="subtitle">ADD YOUR NAME IN LESS THAN 1 MINUTE!</div>
     </header>
 
@@ -318,11 +326,11 @@
             
             <!-- Department Faces Banner -->
             <div class="photo-banner">
-                <figure><img src="Planning.jpg" alt="Planning"><figcaption>Planning</figcaption></figure>
-                <figure><img src="Sanitation Storm.jpg" alt="Sanitation & Storm"><figcaption>Sanitation</figcaption></figure>
-                <figure><img src="Airport.jpg" alt="Airport"><figcaption>Airport</figcaption></figure>
-                <figure><img src="Streets.jpg" alt="Streets"><figcaption>Streets</figcaption></figure>
-                <figure><img src="SSAs.jpg" alt="Admin"><figcaption>Admin</figcaption></figure>
+                <figure><img src="Planning.jpeg" alt="Planning"><figcaption>Planning</figcaption></figure>
+                <figure><img src="Sanitation Storm.jpeg" alt="Sanitation & Storm"><figcaption>Sanitation</figcaption></figure>
+                <figure><img src="Airport.jpeg" alt="Airport"><figcaption>Airport</figcaption></figure>
+                <figure><img src="Streets.jpeg" alt="Streets"><figcaption>Streets</figcaption></figure>
+                <figure><img src="SSAs.jpeg" alt="Admin"><figcaption>Admin</figcaption></figure>
             </div>
 
             <!-- Introduction -->
@@ -342,10 +350,7 @@
                 </ul>
             </div>
 
-            <!-- Group Photo -->
-            <div class="group-photo-container">
-                <img src="hollister.jpg" alt="SEIU Local 521 Stronger Together">
-            </div>
+
 
         </div>
 
@@ -386,3 +391,4 @@
 
 </body>
 </html>
+```
