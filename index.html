@@ -259,6 +259,199 @@
             width: 100%;
         }
 
+        /* The Work You Don't See */
+        .work-section {
+            width: 100%;
+        }
+
+        .work-heading {
+            background-color: var(--heavy-black);
+            color: var(--alert-yellow);
+            display: inline-block;
+            font-size: clamp(1.5rem, 4.5vw, 2.3rem);
+            padding: 12px 24px;
+            margin: 0 0 1.75rem;
+            box-shadow: 6px 6px 0px var(--electric-purple);
+        }
+
+        .work-figure {
+            margin: 0 0 2.5rem;
+            border: 5px solid var(--heavy-black);
+            box-shadow: 8px 8px 0px var(--electric-purple);
+            background: var(--pure-white);
+        }
+
+        .work-figure img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .work-figure figcaption {
+            background: var(--alert-yellow);
+            color: var(--heavy-black);
+            border-top: 5px solid var(--heavy-black);
+            padding: 12px 16px;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .work-copy p {
+            font-size: 1.15rem;
+            margin: 0 0 1.25rem;
+        }
+
+        .work-copy p:last-child {
+            margin-bottom: 0;
+        }
+
+        .work-kicker {
+            color: var(--electric-purple);
+            font-size: 1.3rem !important;
+            font-weight: 800;
+        }
+
+        /* Masonry photo grid */
+        .work-gallery {
+            columns: 3;
+            column-gap: 15px;
+            margin-bottom: 2.5rem;
+        }
+
+        .work-tile {
+            -webkit-column-break-inside: avoid;
+            break-inside: avoid;
+            margin: 0 0 15px;
+        }
+
+        .work-tile-btn {
+            display: block;
+            width: 100%;
+            padding: 0;
+            border: 4px solid var(--heavy-black);
+            box-shadow: 5px 5px 0px var(--heavy-black);
+            background: var(--pure-white);
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .work-tile-btn img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .work-tile-btn:hover,
+        .work-tile-btn:focus-visible {
+            transform: translate(-3px, -3px);
+            box-shadow: 8px 8px 0px var(--electric-purple);
+            outline: 3px solid var(--electric-purple);
+            outline-offset: 3px;
+        }
+
+        .work-tile-hint {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0 0 1rem;
+            opacity: 0.65;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            background: rgba(9, 9, 9, 0.95);
+            padding: 1.5rem 1rem;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox.is-open {
+            display: flex;
+        }
+
+        .lightbox-inner {
+            max-width: 1100px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .lightbox-img {
+            max-width: 100%;
+            max-height: 74vh;
+            width: auto;
+            height: auto;
+            display: block;
+            border: 5px solid var(--pure-white);
+        }
+
+        .lightbox-caption {
+            color: var(--pure-white);
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            line-height: 1.4;
+            text-align: center;
+            max-width: 640px;
+            margin: 1.25rem auto 0;
+        }
+
+        .lightbox-counter {
+            color: var(--alert-yellow);
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-weight: 800;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            margin-top: 0.75rem;
+        }
+
+        .lightbox-btn {
+            background: var(--alert-yellow);
+            color: var(--heavy-black);
+            border: 4px solid var(--heavy-black);
+            font-family: 'Arial Black', Impact, sans-serif;
+            font-size: 1.3rem;
+            line-height: 1;
+            width: 52px;
+            height: 52px;
+            cursor: pointer;
+            position: absolute;
+            transition: background 0.15s;
+        }
+
+        .lightbox-btn:hover,
+        .lightbox-btn:focus-visible {
+            background: var(--electric-purple);
+            color: var(--pure-white);
+            outline: 3px solid var(--alert-yellow);
+            outline-offset: 2px;
+        }
+
+        .lightbox-close {
+            top: 1.25rem;
+            right: 1.25rem;
+        }
+
+        .lightbox-prev {
+            left: 1.25rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .lightbox-next {
+            right: 1.25rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
         /* Footer */
         footer {
             text-align: center;
@@ -286,6 +479,35 @@
             .subtitle { font-size: 1rem; transform: rotate(0); padding: 8px 15px;}
             .card { padding: 1.5rem; }
             .issues-box { padding: 1.5rem; }
+            .work-gallery { columns: 2; column-gap: 12px; }
+            .work-tile { margin-bottom: 12px; }
+            .work-figure {
+                border-width: 4px;
+                box-shadow: 6px 6px 0px var(--electric-purple);
+            }
+            .work-figure figcaption { border-top-width: 4px; font-size: 0.9rem; }
+            .work-copy p { font-size: 1.05rem; }
+            .lightbox { padding: 4.5rem 0.75rem 1rem; }
+            .lightbox-img { max-height: 62vh; }
+            .lightbox-btn { width: 46px; height: 46px; font-size: 1.1rem; }
+            .lightbox-close { top: 0.75rem; right: 0.75rem; }
+            .lightbox-prev { left: 0.5rem; }
+            .lightbox-next { right: 0.5rem; }
+        }
+
+        @media (max-width: 360px) {
+            .work-gallery { columns: 1; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .work-tile-btn,
+            .photo-banner figure {
+                transition: none;
+            }
+            .work-tile-btn:hover,
+            .work-tile-btn:focus-visible {
+                transform: none;
+            }
         }
     </style>
 </head>
@@ -331,6 +553,105 @@
                 </ul>
             </div>
 
+            <!-- ================= THE WORK YOU DON'T SEE ================= -->
+            <section class="work-section" aria-labelledby="work-heading">
+
+                <h2 class="work-heading" id="work-heading">The work you don't see</h2>
+
+                <figure class="work-figure">
+                    <img src="photos/crosswalk-traffic.jpg"
+                         alt="A City of Hollister street worker pushes a line striping machine across a crosswalk on Nash Road while a pickup truck speeds past behind him."
+                         width="1536" height="932" loading="lazy" decoding="async">
+                    <figcaption>Felix repaints a crosswalk on Nash Road. Traffic does not stop for the crew.</figcaption>
+                </figure>
+
+                <div class="card work-copy">
+                    <p>Most of this work happens while you are driving past it. The crosswalk that is bright again on Monday morning. The storm drain that clears before the first rain. The street that gets patched before anyone files a complaint. None of it happens on its own.</p>
+                    <p>Cones and a vest are the only things standing between the crew and traffic that is not slowing down. Doing this safely takes years of practice, and it takes enough people on the job so that one person can watch the road while another runs the machine. The material comes off that machine hot enough to cause serious burns.</p>
+                    <p>They are already running bare bones. The same people who paint the lines patch the potholes, clear the drains and set the detours. City Manager Ana Cortez wants to cut further to save money. Those savings look small on a budget sheet. The cost lands on the street, and on the people still out there doing three jobs in July heat.</p>
+                </div>
+
+                <p class="work-tile-hint">Tap any photo to see it larger</p>
+
+                <div class="work-gallery">
+
+                    <div class="work-tile">
+                        <button type="button" class="work-tile-btn"
+                                data-full="photos/medina-crossing.jpg"
+                                data-caption="Repainting the crossing at Medina Avenue. The crew works while traffic keeps moving through the intersection.">
+                            <img src="photos/medina-crossing-thumb.jpg"
+                                 alt="Three City of Hollister workers repaint a crosswalk at Medina Avenue as an SUV passes through the intersection."
+                                 width="800" height="501" loading="lazy" decoding="async">
+                        </button>
+                    </div>
+
+                    <div class="work-tile">
+                        <button type="button" class="work-tile-btn"
+                                data-full="photos/felix-thermolazer.jpg"
+                                data-caption="The striping machine has to stay hot to work at all. So does the person walking behind it.">
+                            <img src="photos/felix-thermolazer-thumb.jpg"
+                                 alt="Felix guides a ThermoLazer striping machine across a crosswalk, steam rising from the fresh line."
+                                 width="562" height="800" loading="lazy" decoding="async">
+                        </button>
+                    </div>
+
+                    <div class="work-tile">
+                        <button type="button" class="work-tile-btn"
+                                data-full="photos/setting-cones.jpg"
+                                data-caption="Cones go out before any work starts and come back in when it is done. Every crossing, every time.">
+                            <img src="photos/setting-cones-thumb.jpg"
+                                 alt="A worker carries a stack of traffic cones on his shoulder across a freshly painted crosswalk."
+                                 width="800" height="507" loading="lazy" decoding="async">
+                        </button>
+                    </div>
+
+                    <div class="work-tile">
+                        <button type="button" class="work-tile-btn"
+                                data-full="photos/felix-applicator.jpg"
+                                data-caption="Felix behind the applicator. Hollister's crosswalks get repainted on foot, one pass at a time.">
+                            <img src="photos/felix-applicator-thumb.jpg"
+                                 alt="Felix walks behind a thermoplastic applicator on a residential street, heat rising off the tank."
+                                 width="588" height="800" loading="lazy" decoding="async">
+                        </button>
+                    </div>
+
+                    <div class="work-tile">
+                        <button type="button" class="work-tile-btn"
+                                data-full="photos/crew-member-street.jpg"
+                                data-caption="A vest and a line of cones. That is what stands between the crew and the road.">
+                            <img src="photos/crew-member-street-thumb.jpg"
+                                 alt="A City of Hollister street worker stands in the roadway between traffic cones."
+                                 width="800" height="570" loading="lazy" decoding="async">
+                        </button>
+                    </div>
+
+                    <div class="work-tile">
+                        <button type="button" class="work-tile-btn"
+                                data-full="photos/applicator-detail.jpg"
+                                data-caption="The thermoplastic goes down at a set thickness. Too thin and it wears off by winter. Knowing the difference is the job.">
+                            <img src="photos/applicator-detail-thumb.jpg"
+                                 alt="Close view of the applicator shoe laying molten thermoplastic onto asphalt beside a yellow center line."
+                                 width="800" height="527" loading="lazy" decoding="async">
+                        </button>
+                    </div>
+
+                </div>
+
+                <figure class="work-figure">
+                    <img src="photos/crew-portrait.jpg"
+                         alt="John, Andres and Felix of the City of Hollister street crew stand together beside their work truck and equipment trailer."
+                         width="1507" height="957" loading="lazy" decoding="async">
+                    <figcaption>John, Andres and Felix. Between them, decades on Hollister's streets.</figcaption>
+                </figure>
+
+                <div class="card work-copy">
+                    <p>They know where the water pools first in a storm, which lines need repainting before anyone calls it in, and how to get the job done without shutting down half a street. None of that is written down anywhere. It leaves when they leave.</p>
+                    <p>A contractor does not carry any of it. A contractor answers to a profit margin. The city has already talked about subcontracting Animal Services and outsourcing the water department. Once the people who know this city are gone, buying that knowledge back costs far more than keeping it.</p>
+                    <p class="work-kicker">City employees have helped balance this budget before and they are willing to do it again. They should not have to do it from a crew too small to keep itself safe.</p>
+                </div>
+
+            </section>
+
         </div>
 
         <!-- ================= THE ACTION FORM ================= -->
@@ -367,6 +688,116 @@
         <p>PROTECT HOLLISTER PUBLIC SERVICES</p>
         <p style="color: #999; font-weight: normal;">Built for the community, by the community.</p>
     </footer>
+
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" aria-hidden="true">
+        <button type="button" class="lightbox-btn lightbox-close" id="lightbox-close" aria-label="Close photo viewer">&#10005;</button>
+        <button type="button" class="lightbox-btn lightbox-prev" id="lightbox-prev" aria-label="Previous photo">&#10094;</button>
+        <button type="button" class="lightbox-btn lightbox-next" id="lightbox-next" aria-label="Next photo">&#10095;</button>
+        <div class="lightbox-inner">
+            <img class="lightbox-img" id="lightbox-img" src="" alt="">
+            <p class="lightbox-caption" id="lightbox-caption"></p>
+            <p class="lightbox-counter" id="lightbox-counter"></p>
+        </div>
+    </div>
+
+    <script>
+    (function () {
+        var tiles = Array.prototype.slice.call(document.querySelectorAll('.work-tile-btn'));
+        if (!tiles.length) { return; }
+
+        var box = document.getElementById('lightbox');
+        var img = document.getElementById('lightbox-img');
+        var caption = document.getElementById('lightbox-caption');
+        var counter = document.getElementById('lightbox-counter');
+        var closeBtn = document.getElementById('lightbox-close');
+        var prevBtn = document.getElementById('lightbox-prev');
+        var nextBtn = document.getElementById('lightbox-next');
+        var controls = [closeBtn, prevBtn, nextBtn];
+
+        var index = 0;
+        var lastFocused = null;
+
+        function preload(src) {
+            if (!src) { return; }
+            var p = new Image();
+            p.src = src;
+        }
+
+        function show(i) {
+            index = (i + tiles.length) % tiles.length;
+            var tile = tiles[index];
+            img.src = tile.getAttribute('data-full');
+            img.alt = tile.querySelector('img').alt;
+            caption.textContent = tile.getAttribute('data-caption') || '';
+            counter.textContent = (index + 1) + ' of ' + tiles.length;
+            preload(tiles[(index + 1) % tiles.length].getAttribute('data-full'));
+            preload(tiles[(index - 1 + tiles.length) % tiles.length].getAttribute('data-full'));
+        }
+
+        function open(i) {
+            lastFocused = document.activeElement;
+            show(i);
+            box.classList.add('is-open');
+            box.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+            closeBtn.focus();
+        }
+
+        function close() {
+            box.classList.remove('is-open');
+            box.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            img.src = '';
+            if (lastFocused) { lastFocused.focus(); }
+        }
+
+        tiles.forEach(function (tile, i) {
+            tile.addEventListener('click', function () { open(i); });
+        });
+
+        closeBtn.addEventListener('click', close);
+        prevBtn.addEventListener('click', function () { show(index - 1); });
+        nextBtn.addEventListener('click', function () { show(index + 1); });
+
+        box.addEventListener('click', function (event) {
+            if (event.target === box || event.target.classList.contains('lightbox-inner')) {
+                close();
+            }
+        });
+
+        document.addEventListener('keydown', function (event) {
+            if (!box.classList.contains('is-open')) { return; }
+            if (event.key === 'Escape') {
+                close();
+            } else if (event.key === 'ArrowLeft') {
+                show(index - 1);
+            } else if (event.key === 'ArrowRight') {
+                show(index + 1);
+            } else if (event.key === 'Tab') {
+                // Keep focus inside the viewer while it is open.
+                var current = controls.indexOf(document.activeElement);
+                var step = event.shiftKey ? -1 : 1;
+                var next = (current + step + controls.length) % controls.length;
+                controls[next].focus();
+                event.preventDefault();
+            }
+        });
+
+        var touchStartX = null;
+        box.addEventListener('touchstart', function (event) {
+            touchStartX = event.changedTouches[0].clientX;
+        }, { passive: true });
+
+        box.addEventListener('touchend', function (event) {
+            if (touchStartX === null) { return; }
+            var delta = event.changedTouches[0].clientX - touchStartX;
+            if (Math.abs(delta) > 50) {
+                show(delta < 0 ? index + 1 : index - 1);
+            }
+            touchStartX = null;
+        }, { passive: true });
+    })();
+    </script>
 
 </body>
 </html>
