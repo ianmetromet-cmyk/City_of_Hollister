@@ -312,6 +312,61 @@
             font-weight: 800;
         }
 
+        .work-subhead {
+            color: var(--electric-purple);
+            font-size: clamp(1.25rem, 3.4vw, 1.75rem);
+            margin: 0 0 1.25rem;
+            padding-bottom: 10px;
+            border-bottom: 5px solid var(--heavy-black);
+        }
+
+        .work-questions h3 {
+            color: var(--electric-purple);
+            font-size: clamp(1.3rem, 3.6vw, 1.9rem);
+            margin: 0 0 1rem;
+        }
+
+        .work-questions .work-lead {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 0 0 1.5rem;
+        }
+
+        .work-questions .issues-list li {
+            margin-bottom: 1rem;
+        }
+
+        .work-close {
+            background-color: var(--heavy-black);
+            color: var(--pure-white);
+            border: 5px solid var(--heavy-black);
+            box-shadow: 8px 8px 0px var(--alert-yellow);
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .work-close p {
+            font-size: 1.15rem;
+            margin: 0 0 1.25rem;
+        }
+
+        .work-close p:last-child {
+            margin-bottom: 0;
+        }
+
+        .work-close strong {
+            color: var(--alert-yellow);
+        }
+
+        .work-close-q {
+            color: var(--alert-yellow);
+            font-family: 'Arial Black', Impact, 'Segoe UI Black', sans-serif;
+            font-size: clamp(1.2rem, 3.4vw, 1.6rem) !important;
+            text-transform: uppercase;
+            line-height: 1.2;
+        }
+
         /* Masonry photo grid */
         .work-gallery {
             columns: 3;
@@ -487,6 +542,8 @@
             }
             .work-figure figcaption { border-top-width: 4px; font-size: 0.9rem; }
             .work-copy p { font-size: 1.05rem; }
+            .work-close { padding: 1.5rem; }
+            .work-close p { font-size: 1.05rem; }
             .lightbox { padding: 4.5rem 0.75rem 1rem; }
             .lightbox-img { max-height: 62vh; }
             .lightbox-btn { width: 46px; height: 46px; font-size: 1.1rem; }
@@ -568,7 +625,14 @@
                 <div class="card work-copy">
                     <p>Most of this work happens while you are driving past it. The crosswalk that is bright again on Monday morning. The storm drain that clears before the first rain. The street that gets patched before anyone files a complaint. None of it happens on its own.</p>
                     <p>Cones and a vest are the only things standing between the crew and traffic that is not slowing down. Doing this safely takes years of practice, and it takes enough people on the job so that one person can watch the road while another runs the machine. The material comes off that machine hot enough to cause serious burns.</p>
-                    <p>They are already running bare bones. The same people who paint the lines patch the potholes, clear the drains and set the detours. City Manager Ana Cortez wants to cut further to save money. Those savings look small on a budget sheet. The cost lands on the street, and on the people still out there doing three jobs in July heat.</p>
+                    <p>They are already running bare bones. The same people who paint the lines patch the potholes, clear the drains and set the detours. Workers say the restructuring proposed under City Manager Ana Cortez would thin these crews further. On a budget sheet those savings look small. On the street they show up as slower repairs, longer waits and more risk for the people still out there doing three jobs in July heat.</p>
+                </div>
+
+                <div class="card work-copy">
+                    <h3 class="work-subhead">Fewer workers, more pressure</h3>
+                    <p>Public work does not shrink because a budget does. The pipes still need maintenance. The streets still need repair. Storm drains still need clearing before the first rain. Residents still expect someone to answer when something breaks at six in the morning.</p>
+                    <p>When fewer people are asked to carry the same ground, something gives. Preventive work slides so that emergencies get covered. The small problems nobody had time for turn into the expensive ones. Workers believe continued staffing reductions leave employees exposed and make it harder to hold the level of service this community expects.</p>
+                    <p>Experience is what keeps this work safe. Reading traffic before you step into it. Knowing how a machine behaves when it is running hot. Knowing when a routine repair is actually the start of a serious failure. That judgment takes years to build and it cannot be hired back on short notice.</p>
                 </div>
 
                 <p class="work-tile-hint">Tap any photo to see it larger</p>
@@ -627,6 +691,16 @@
 
                     <div class="work-tile">
                         <button type="button" class="work-tile-btn"
+                                data-full="photos/felix-commercial-strip.jpg"
+                                data-caption="A commercial stretch in the middle of the afternoon. The work happens around whatever traffic is already there.">
+                            <img src="photos/felix-commercial-strip-thumb.jpg"
+                                 alt="Felix works behind the striping machine on a busy Hollister commercial street lined with parked cars and passing traffic."
+                                 width="800" height="485" loading="lazy" decoding="async">
+                        </button>
+                    </div>
+
+                    <div class="work-tile">
+                        <button type="button" class="work-tile-btn"
                                 data-full="photos/applicator-detail.jpg"
                                 data-caption="The thermoplastic goes down at a set thickness. Too thin and it wears off by winter. Knowing the difference is the job.">
                             <img src="photos/applicator-detail-thumb.jpg"
@@ -645,9 +719,29 @@
                 </figure>
 
                 <div class="card work-copy">
-                    <p>They know where the water pools first in a storm, which lines need repainting before anyone calls it in, and how to get the job done without shutting down half a street. None of that is written down anywhere. It leaves when they leave.</p>
-                    <p>A contractor does not carry any of it. A contractor answers to a profit margin. The city has already talked about subcontracting Animal Services and outsourcing the water department. Once the people who know this city are gone, buying that knowledge back costs far more than keeping it.</p>
-                    <p class="work-kicker">City employees have helped balance this budget before and they are willing to do it again. They should not have to do it from a crew too small to keep itself safe.</p>
+                    <h3 class="work-subhead">The people who keep Hollister running</h3>
+                    <p>Hollister is not maintained by spreadsheets or organizational charts. It is maintained by people who know where the water pools first in a storm, which stretch of pipe has been failing for years, and how to finish a job without shutting down half a street. None of that is written down anywhere. It leaves when they leave.</p>
+                    <p>Residents understand that cities face hard budget decisions. The question workers and neighbors keep asking is what gets lost when work built around public responsibility is handed to an outside contractor. A contractor arrives without any of this history and answers to a profit margin. The city has already raised the possibility of subcontracting Animal Services and outsourcing our water department.</p>
+                    <p>Public employees are accountable to the community they serve. They live here. They see residents at the grocery store and at their kids' schools. They are invested in Hollister for the long term, and that changes how carefully the work gets done.</p>
+                    <p class="work-kicker">Knowledge like this is built over decades and lost in a single budget cycle.</p>
+                </div>
+
+                <div class="issues-box work-questions">
+                    <h3>Questions that deserve answers</h3>
+                    <p class="work-lead">Residents deserve transparency when decisions are made about the reliability of the services they pay for. Workers and community members are asking City leadership to answer plainly:</p>
+                    <ul class="issues-list">
+                        <li>What happens to <strong>essential community services</strong> when experienced employees leave and their knowledge goes with them?</li>
+                        <li>How will the city maintain <strong>streets, water and storm systems</strong> with fewer people doing the work?</li>
+                        <li>How will <strong>worker and public safety</strong> be protected as crews keep getting smaller?</li>
+                        <li>Who benefits, and who pays the price, when public work is handed to <strong>outside contractors</strong>?</li>
+                        <li>Were workers and residents <strong>meaningfully included</strong> before major changes were proposed?</li>
+                    </ul>
+                </div>
+
+                <div class="work-close">
+                    <p><strong>City of Hollister employees are the backbone of our community.</strong> SEIU 521 members are neighbors. They are the people residents see repairing streets, maintaining water systems, clearing drains after a storm and keeping public spaces safe. Their experience is one of the most valuable things this city owns, and it does not appear anywhere on a balance sheet.</p>
+                    <p>City employees helped balance this budget in 2025 and they are willing to do it again. They should not have to do it from a crew too small to keep itself safe. What they are asking for is a real seat at the table before decisions get made about the services this community depends on every day.</p>
+                    <p class="work-close-q">Hollister is deciding more than a budget. It is deciding what kind of city it becomes, and who will be left to keep it running.</p>
                 </div>
 
             </section>
