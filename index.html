@@ -115,9 +115,26 @@
             transition: transform 0.2s;
         }
 
-        .photo-banner figure:hover {
+        .photo-banner figure:hover,
+        .photo-banner figure:focus-within {
             transform: translate(-3px, -3px);
             box-shadow: 8px 8px 0px var(--electric-purple);
+        }
+
+        .photo-btn {
+            display: block;
+            width: 100%;
+            padding: 0;
+            border: 0;
+            background: none;
+            font: inherit;
+            color: inherit;
+            cursor: pointer;
+        }
+
+        .photo-btn:focus-visible {
+            outline: 3px solid var(--electric-purple);
+            outline-offset: 3px;
         }
 
         .photo-banner img {
@@ -127,7 +144,8 @@
             display: block;
         }
 
-        .photo-banner figcaption {
+        .photo-banner .photo-caption {
+            display: block;
             background: var(--alert-yellow);
             color: var(--heavy-black);
             font-size: 0.9rem;
@@ -562,7 +580,9 @@
                 transition: none;
             }
             .work-tile-btn:hover,
-            .work-tile-btn:focus-visible {
+            .work-tile-btn:focus-visible,
+            .photo-banner figure:hover,
+            .photo-banner figure:focus-within {
                 transform: none;
             }
         }
@@ -585,12 +605,62 @@
         <div class="content-block">
             
             <!-- Department Faces Banner -->
-            <div class="photo-banner">
-                <figure><img src="planning.jpg" alt="Planning"><figcaption>Planning</figcaption></figure>
-                <figure><img src="sanitation.jpg" alt="Sanitation & Storm"><figcaption>Sanitation</figcaption></figure>
-                <figure><img src="airport.jpg" alt="Airport"><figcaption>Airport</figcaption></figure>
-                <figure><img src="streets.jpg" alt="Streets"><figcaption>Streets</figcaption></figure>
-                <figure><img src="ssas.jpg" alt="Admin"><figcaption>Admin</figcaption></figure>
+            <div class="photo-banner" aria-label="City of Hollister departments">
+                <figure>
+                    <button type="button" class="photo-btn" data-gallery="departments"
+                            data-full="photos/dept-planning.jpg"
+                            data-alt="City of Hollister Planning Department staff standing together for a group photo"
+                            data-caption="Planning Department. The people who review what gets built in Hollister and how."
+                            aria-label="Open Planning department photo">
+                        <img src="planning.jpg" alt=""
+                             width="600" height="450" loading="lazy" decoding="async">
+                        <span class="photo-caption">Planning</span>
+                    </button>
+                </figure>
+                <figure>
+                    <button type="button" class="photo-btn" data-gallery="departments"
+                            data-full="photos/dept-sanitation.jpg"
+                            data-alt="City of Hollister Sanitation and Storm crew standing together in high visibility shirts"
+                            data-caption="Sanitation and Storm. The crew that keeps the drains clear before the rain arrives."
+                            aria-label="Open Sanitation department photo">
+                        <img src="sanitation.jpg" alt=""
+                             width="600" height="450" loading="lazy" decoding="async">
+                        <span class="photo-caption">Sanitation</span>
+                    </button>
+                </figure>
+                <figure>
+                    <button type="button" class="photo-btn" data-gallery="departments"
+                            data-full="photos/dept-airport.jpg"
+                            data-alt="City of Hollister Airport staff standing together in high visibility shirts"
+                            data-caption="Airport. A small crew keeping a public facility running every day."
+                            aria-label="Open Airport department photo">
+                        <img src="airport.jpg" alt=""
+                             width="600" height="450" loading="lazy" decoding="async">
+                        <span class="photo-caption">Airport</span>
+                    </button>
+                </figure>
+                <figure>
+                    <button type="button" class="photo-btn" data-gallery="departments"
+                            data-full="photos/dept-streets.jpg"
+                            data-alt="City of Hollister Streets crew holding SEIU Local 521 signs"
+                            data-caption="Streets. The crew behind the crosswalks, the patches and the detours."
+                            aria-label="Open Streets department photo">
+                        <img src="streets.jpg" alt=""
+                             width="600" height="450" loading="lazy" decoding="async">
+                        <span class="photo-caption">Streets</span>
+                    </button>
+                </figure>
+                <figure>
+                    <button type="button" class="photo-btn" data-gallery="departments"
+                            data-full="photos/dept-admin.jpg"
+                            data-alt="City of Hollister administrative staff standing together for a group photo"
+                            data-caption="Administrative staff. The people who keep records, permits and payments moving."
+                            aria-label="Open Admin department photo">
+                        <img src="ssas.jpg" alt=""
+                             width="600" height="450" loading="lazy" decoding="async">
+                        <span class="photo-caption">Admin</span>
+                    </button>
+                </figure>
             </div>
 
             <!-- Introduction -->
@@ -640,7 +710,7 @@
                 <div class="work-gallery">
 
                     <div class="work-tile">
-                        <button type="button" class="work-tile-btn"
+                        <button type="button" class="work-tile-btn" data-gallery="work"
                                 data-full="photos/medina-crossing.jpg"
                                 data-caption="Repainting the crossing at Medina Avenue. The crew works while traffic keeps moving through the intersection.">
                             <img src="photos/medina-crossing-thumb.jpg"
@@ -650,7 +720,7 @@
                     </div>
 
                     <div class="work-tile">
-                        <button type="button" class="work-tile-btn"
+                        <button type="button" class="work-tile-btn" data-gallery="work"
                                 data-full="photos/felix-thermolazer.jpg"
                                 data-caption="The striping machine has to stay hot to work at all. So does the person walking behind it.">
                             <img src="photos/felix-thermolazer-thumb.jpg"
@@ -660,7 +730,7 @@
                     </div>
 
                     <div class="work-tile">
-                        <button type="button" class="work-tile-btn"
+                        <button type="button" class="work-tile-btn" data-gallery="work"
                                 data-full="photos/setting-cones.jpg"
                                 data-caption="Cones go out before any work starts and come back in when it is done. Every crossing, every time.">
                             <img src="photos/setting-cones-thumb.jpg"
@@ -670,7 +740,7 @@
                     </div>
 
                     <div class="work-tile">
-                        <button type="button" class="work-tile-btn"
+                        <button type="button" class="work-tile-btn" data-gallery="work"
                                 data-full="photos/felix-applicator.jpg"
                                 data-caption="Felix behind the applicator. Hollister's crosswalks get repainted on foot, one pass at a time.">
                             <img src="photos/felix-applicator-thumb.jpg"
@@ -680,7 +750,7 @@
                     </div>
 
                     <div class="work-tile">
-                        <button type="button" class="work-tile-btn"
+                        <button type="button" class="work-tile-btn" data-gallery="work"
                                 data-full="photos/crew-member-street.jpg"
                                 data-caption="A vest and a line of cones. That is what stands between the crew and the road.">
                             <img src="photos/crew-member-street-thumb.jpg"
@@ -690,7 +760,7 @@
                     </div>
 
                     <div class="work-tile">
-                        <button type="button" class="work-tile-btn"
+                        <button type="button" class="work-tile-btn" data-gallery="work"
                                 data-full="photos/felix-commercial-strip.jpg"
                                 data-caption="A commercial stretch in the middle of the afternoon. The work happens around whatever traffic is already there.">
                             <img src="photos/felix-commercial-strip-thumb.jpg"
@@ -700,7 +770,7 @@
                     </div>
 
                     <div class="work-tile">
-                        <button type="button" class="work-tile-btn"
+                        <button type="button" class="work-tile-btn" data-gallery="work"
                                 data-full="photos/applicator-detail.jpg"
                                 data-caption="The thermoplastic goes down at a set thickness. Too thin and it wears off by winter. Knowing the difference is the job.">
                             <img src="photos/applicator-detail-thumb.jpg"
@@ -796,8 +866,17 @@
 
     <script>
     (function () {
-        var tiles = Array.prototype.slice.call(document.querySelectorAll('.work-tile-btn'));
-        if (!tiles.length) { return; }
+        var buttons = Array.prototype.slice.call(document.querySelectorAll('[data-full]'));
+        if (!buttons.length) { return; }
+
+        // Photos are grouped so arrow keys and swipes stay inside the set the
+        // visitor opened instead of running across every photo on the page.
+        var groups = {};
+        buttons.forEach(function (btn) {
+            var name = btn.getAttribute('data-gallery') || 'default';
+            if (!groups[name]) { groups[name] = []; }
+            groups[name].push(btn);
+        });
 
         var box = document.getElementById('lightbox');
         var img = document.getElementById('lightbox-img');
@@ -808,6 +887,7 @@
         var nextBtn = document.getElementById('lightbox-next');
         var controls = [closeBtn, prevBtn, nextBtn];
 
+        var current = [];
         var index = 0;
         var lastFocused = null;
 
@@ -817,18 +897,25 @@
             p.src = src;
         }
 
-        function show(i) {
-            index = (i + tiles.length) % tiles.length;
-            var tile = tiles[index];
-            img.src = tile.getAttribute('data-full');
-            img.alt = tile.querySelector('img').alt;
-            caption.textContent = tile.getAttribute('data-caption') || '';
-            counter.textContent = (index + 1) + ' of ' + tiles.length;
-            preload(tiles[(index + 1) % tiles.length].getAttribute('data-full'));
-            preload(tiles[(index - 1 + tiles.length) % tiles.length].getAttribute('data-full'));
+        function tileAlt(tile) {
+            return tile.getAttribute('data-alt')
+                || (tile.querySelector('img') && tile.querySelector('img').alt)
+                || '';
         }
 
-        function open(i) {
+        function show(i) {
+            index = (i + current.length) % current.length;
+            var tile = current[index];
+            img.src = tile.getAttribute('data-full');
+            img.alt = tileAlt(tile);
+            caption.textContent = tile.getAttribute('data-caption') || '';
+            counter.textContent = (index + 1) + ' of ' + current.length;
+            preload(current[(index + 1) % current.length].getAttribute('data-full'));
+            preload(current[(index - 1 + current.length) % current.length].getAttribute('data-full'));
+        }
+
+        function open(group, i) {
+            current = group;
             lastFocused = document.activeElement;
             show(i);
             box.classList.add('is-open');
@@ -845,8 +932,12 @@
             if (lastFocused) { lastFocused.focus(); }
         }
 
-        tiles.forEach(function (tile, i) {
-            tile.addEventListener('click', function () { open(i); });
+        buttons.forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var name = btn.getAttribute('data-gallery') || 'default';
+                var group = groups[name];
+                open(group, group.indexOf(btn));
+            });
         });
 
         closeBtn.addEventListener('click', close);
@@ -869,9 +960,9 @@
                 show(index + 1);
             } else if (event.key === 'Tab') {
                 // Keep focus inside the viewer while it is open.
-                var current = controls.indexOf(document.activeElement);
+                var focused = controls.indexOf(document.activeElement);
                 var step = event.shiftKey ? -1 : 1;
-                var next = (current + step + controls.length) % controls.length;
+                var next = (focused + step + controls.length) % controls.length;
                 controls[next].focus();
                 event.preventDefault();
             }
