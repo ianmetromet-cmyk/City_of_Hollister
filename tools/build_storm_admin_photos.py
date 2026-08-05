@@ -12,9 +12,9 @@ OUT = os.path.join(REPO, "photos")
 SRC = "/tmp/holl_new"
 STREETS_HIRES = "/tmp/streets_orig.jpg"
 
-FULL_MAX = 1400
-THUMB_MAX = 800
-BANNER_MAX = 600
+FULL_MAX = 1820
+THUMB_MAX = 1040
+BANNER_MAX = 780
 
 
 def pil_from(path):
@@ -68,12 +68,12 @@ def save_pair(im, name, full_max=FULL_MAX):
     full = fit(im, full_max)
     full = full.filter(ImageFilter.UnsharpMask(radius=0.7, percent=55, threshold=3))
     full_path = os.path.join(OUT, name + ".jpg")
-    full.save(full_path, "JPEG", quality=76, optimize=True, progressive=True)
+    full.save(full_path, "JPEG", quality=90, optimize=True, progressive=True, subsampling=0)
 
     thumb = fit(im, THUMB_MAX)
     thumb = thumb.filter(ImageFilter.UnsharpMask(radius=0.6, percent=70, threshold=3))
     thumb_path = os.path.join(OUT, name + "-thumb.jpg")
-    thumb.save(thumb_path, "JPEG", quality=68, optimize=True, progressive=True)
+    thumb.save(thumb_path, "JPEG", quality=82, optimize=True, progressive=True, subsampling=0)
     print(f"  {name:28s} {full.size[0]}x{full.size[1]}  "
           f"{os.path.getsize(full_path)/1024:.0f}KB")
     return full.size, thumb.size
@@ -144,7 +144,7 @@ def edit_storm1():
 
 
 def edit_storm2():
-    im = pil_from(os.path.join(SRC, "storm2_paul.png"))
+    im = pil_from(os.path.join(SRC, "storm2_paul.png"))  # source filename; subject is Juan
     im = levels(im, 8, 250, 0.97)
     im = ImageEnhance.Color(im).enhance(1.04)
     return im
@@ -163,25 +163,50 @@ def edit_admin(name, angle=0.0, crop=None):
 
 
 os.makedirs(OUT, exist_ok=True)
-print("=== STREETS BANNER ===")
-edit_streets()
 
-print("=== STORM ===")
-save_pair(edit_storm1(), "storm-hose-reel")
-save_pair(edit_storm2(), "storm-paul")
-save_pair(edit_storm3(), "storm-pipe-crew")
 
-print("=== ADMIN / ENGINEERING ===")
-save_pair(edit_admin("admin1_smile.png"), "admin-desk-smile")
-save_pair(edit_admin("admin2_monitors.png"), "admin-monitors")
-save_pair(edit_admin("admin3_papers.png"), "admin-papers")
-save_pair(edit_admin("admin4_group.png", angle=-1.4,
-                     crop=(0.02, 0.04, 0.98, 0.98)), "admin-team")
+def main():
+    print("=== STREETS BANNER ===")
+    edit_streets()
 
-# Update Admin department banner card with the team photo.
-team = pil_from(os.path.join(OUT, "admin-team.jpg"))
-banner = fit(team, BANNER_MAX)
-banner.save(os.path.join(REPO, "ssas.jpg"), "JPEG", quality=72, optimize=True, progressive=True)
-banner.save(os.path.join(OUT, "dept-admin.jpg"), "JPEG", quality=76, optimize=True, progressive=True)
-print("  ssas.jpg / dept-admin.jpg updated from admin-team")
-print("done")
+    print("=== STORM ===")
+    # Prefer native P122 frames when available (much sharper than 1024px screenshots).
+    storm_hi = "/tmp/storm_hires"
+    if os.path.isdir(storm_hi) and os.path.exists(os.path.join(storm_hi, "P1220248.jpg")):
+        def from_hi(name, crop=None):
+            im = pil_from(os.path.join(storm_hi, name))
+            if crop:
+                w, h = im.size
+                im = im.crop((int(crop[0] * w), int(crop[1] * h),
+                              int(crop[2] * w), int(crop[3] * h)))
+            im = levels(im, 8, 250, 0.97)
+            im = ImageEnhance.Color(im).enhance(1.04)
+            im = ImageEnhance.Contrast(im).enhance(1.05)
+            return im
+
+        save_pair(from_hi("P1220247.jpg", (0.04, 0.04, 0.96, 0.96)), "storm-hose-reel")
+        save_pair(from_hi("P1220248.jpg", (0.08, 0.02, 0.92, 0.98)), "storm-juan")
+        save_pair(from_hi("P1220243.jpg", (0.02, 0.08, 0.98, 0.95)), "storm-vactor-truck")
+        save_pair(from_hi("P1220224.jpg", (0.12, 0.02, 0.88, 0.98)), "storm-seiu-vactor")
+    else:
+        save_pair(edit_storm1(), "storm-hose-reel")
+        save_pair(edit_storm2(), "storm-juan")
+        save_pair(edit_storm3(), "storm-pipe-crew")
+
+    print("=== ADMIN / ENGINEERING ===")
+    save_pair(edit_admin("admin1_smile.png"), "admin-desk-smile")
+    save_pair(edit_admin("admin2_monitors.png"), "admin-monitors")
+    save_pair(edit_admin("admin3_papers.png"), "admin-papers")
+    team_full = edit_admin("admin4_group.png", angle=-1.4,
+                           crop=(0.02, 0.04, 0.98, 0.98))
+    save_pair(team_full, "admin-team", full_max=501)
+
+    banner = fit(team_full, BANNER_MAX)
+    banner.save(os.path.join(REPO, "ssas.jpg"), "JPEG", quality=84, optimize=True, progressive=True, subsampling=0)
+    banner.save(os.path.join(OUT, "dept-admin.jpg"), "JPEG", quality=90, optimize=True, progressive=True, subsampling=0)
+    print("  ssas.jpg / dept-admin.jpg updated from admin-team")
+    print("done")
+
+
+if __name__ == "__main__":
+    main()

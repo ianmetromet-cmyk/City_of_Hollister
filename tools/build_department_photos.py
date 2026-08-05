@@ -19,11 +19,10 @@ from PIL import Image, ImageEnhance, ImageFilter
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ORIGIN_COMMIT = "7761d95"
 
-BANNER_MAX = 600
+BANNER_MAX = 780
 # These frames are group shots against a dense hedge, and that foliage detail
-# is expensive to encode. 1400 with a lighter sharpen keeps faces readable
-# without the half megabyte per photo that 1600 costs here.
-FULL_MAX = 1400
+# is expensive to encode. 1820 with light sharpen keeps faces readable.
+FULL_MAX = 1820
 
 # source stem, lightbox name, black point, white point, midtone exponent, saturation
 DEPARTMENTS = [
@@ -78,12 +77,12 @@ for stem, out_name, lo, hi, exponent, sat in DEPARTMENTS:
     full = fit(im, FULL_MAX)
     full = full.filter(ImageFilter.UnsharpMask(radius=0.6, percent=35, threshold=4))
     full_path = os.path.join(REPO, "photos", out_name + ".jpg")
-    save(full, full_path, 68)
+    save(full, full_path, 90)
 
     banner = fit(im, BANNER_MAX)
     banner = banner.filter(ImageFilter.UnsharpMask(radius=0.6, percent=70, threshold=3))
     banner_path = os.path.join(REPO, stem + ".jpg")
-    save(banner, banner_path, 68)
+    save(banner, banner_path, 84)
 
     rows.append((stem, source_size, full.size, os.path.getsize(full_path),
                  banner.size, os.path.getsize(banner_path)))
