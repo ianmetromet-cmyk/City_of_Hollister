@@ -305,9 +305,24 @@
             display: block;
         }
 
-        /* Admin team lead: half the previous full-bleed footprint */
-        .work-figure--half {
-            max-width: 501px;
+        /* Engineering section: 3-tile gallery takes the full-width lead role */
+        .work-gallery--lead {
+            width: 100%;
+            max-width: 100%;
+            columns: unset;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 2.5rem;
+        }
+
+        .work-gallery--lead .work-tile {
+            margin: 0;
+        }
+
+        .work-gallery--lead .work-tile-btn {
+            border-width: 5px;
+            box-shadow: 8px 8px 0px var(--electric-purple);
         }
 
         .work-figure figcaption {
@@ -558,7 +573,13 @@
             .card { padding: 1.5rem; }
             .issues-box { padding: 1.5rem; }
             .work-gallery { columns: 2; column-gap: 12px; }
+            .work-gallery--lead {
+                columns: unset;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
             .work-tile { margin-bottom: 12px; }
+            .work-gallery--lead .work-tile { margin: 0; }
             .work-figure {
                 border-width: 4px;
                 box-shadow: 6px 6px 0px var(--electric-purple);
@@ -577,6 +598,10 @@
 
         @media (max-width: 360px) {
             .work-gallery { columns: 1; }
+            .work-gallery--lead {
+                columns: unset;
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -837,13 +862,23 @@
 
                 <figure class="work-figure">
                     <img src="photos/storm-juan.jpg"
-                         alt="Juan of the City of Hollister Storm crew stands beside red Vactor equipment in a high-visibility shirt and hard hat." loading="lazy" decoding="async" width="1820" height="1561">
-                    <figcaption>Juan. Storm work is loud, heavy and specialized. It is not work you hand to whoever is cheapest.</figcaption>
+                         alt="Juan Lopez, Maintenance Worker II with the City of Hollister Storm crew, stands beside red Vactor equipment in a high-visibility shirt and hard hat." loading="lazy" decoding="async" width="1820" height="1561">
+                    <figcaption>Juan Lopez, Maintenance Worker II. Storm work is loud, heavy and specialized. It is not work you hand to whoever is cheapest.</figcaption>
                 </figure>
 
                 <div class="card work-copy">
-                    <p>Storm and sanitation crews keep floodwater moving and keep the system from backing up into streets and homes. The trucks are specialized. The judgment is local. Knowing which line clogs first after a hard rain is not written in a manual that arrives with a contractor.</p>
-                    <p>When crews get thinner, preventive cleaning slides. The first storm of the season becomes the first emergency. Residents feel that in flooded intersections and delayed response, not on a spreadsheet.</p>
+                    <p>Storm and sanitation crews keep floodwater moving and keep the system from backing up into streets and homes. The pipes and storm systems are OLD. The trucks are specialized and the systems are highly localized. Knowing which line clogs up first after a hard rain is not written in a manual that arrives with a contractor.</p>
+                </div>
+
+                <figure class="work-figure">
+                    <img src="photos/storm-arthur.jpg"
+                         alt="Arthur Hernandez of the City of Hollister Storm crew smiles beside a Vactor hose reel in a hard hat and high-visibility vest." loading="lazy" decoding="async" width="1820" height="1536">
+                    <figcaption>Arthur Hernandez. Storm and sanitation work is specialized, and the people who do it know this city.</figcaption>
+                </figure>
+
+                <div class="card work-copy">
+                    <p>Stormwater work is precise, physical and unforgiving. Hydrants that must flush clean. Lines that fail without warning. SEIU Local 521 members like Arthur Hernandez and Juan Lopez, long-term locals, know where and how to fix the problem when a flood hits.</p>
+                    <p>When you hand this system over to a private contractor as Ana Cortez and the City Council are planning, you trade neighbors who answer to the public for a contractor that answers to a profit line. Residents don't deserve to suffer for the City Council to make a profit on their public services. The question truly is if the people providing the public service work are invested in Hollister, or in their next invoice.</p>
                 </div>
 
                 <p class="work-tile-hint">Tap any photo to see it larger</p>
@@ -852,28 +887,28 @@
 
                     <div class="work-tile">
                         <button type="button" class="work-tile-btn" data-gallery="storm"
+                                data-full="photos/storm-pipe-crew.jpg"
+                                data-caption="Vault work and the hose reel. The job runs from the hole in the concrete to the machine that clears it.">
+                            <img src="photos/storm-pipe-crew-thumb.jpg"
+                                 alt="City of Hollister Storm worker at an open vault beside a red hose reel and specialized truck equipment." loading="lazy" decoding="async" width="1040" height="522">
+                        </button>
+                    </div>
+
+                    <div class="work-tile">
+                        <button type="button" class="work-tile-btn" data-gallery="storm"
+                                data-full="photos/storm-vault-lean.jpg"
+                                data-caption="At the vault. Juan Lopez and a crewmate put hands on pipe and equipment when the system needs clearing.">
+                            <img src="photos/storm-vault-lean-thumb.jpg"
+                                 alt="Juan Lopez of the City of Hollister Storm crew leans between a metal pipe and red equipment while a second worker works behind him." loading="lazy" decoding="async" width="1040" height="814">
+                        </button>
+                    </div>
+
+                    <div class="work-tile">
+                        <button type="button" class="work-tile-btn" data-gallery="storm"
                                 data-full="photos/storm-hose-reel.jpg"
                                 data-caption="On the hose reel. Storm equipment is built for pressure, suction and long days in gravel lots.">
                             <img src="photos/storm-hose-reel-thumb.jpg"
-                                 alt="Juan of the Storm Department points to a control panel on red Vactor equipment at a utility yard." loading="lazy" decoding="async" width="1040" height="780">
-                        </button>
-                    </div>
-
-                    <div class="work-tile">
-                        <button type="button" class="work-tile-btn" data-gallery="storm"
-                                data-full="photos/storm-vactor-truck.jpg"
-                                data-caption="A Vactor truck ready for the next call. This is the machine that clears what residents never see.">
-                            <img src="photos/storm-vactor-truck-thumb.jpg"
-                                 alt="Two City of Hollister Storm workers stand beside a Vactor truck with red vacuum boom and front hose reel." loading="lazy" decoding="async" width="1040" height="707">
-                        </button>
-                    </div>
-
-                    <div class="work-tile">
-                        <button type="button" class="work-tile-btn" data-gallery="storm"
-                                data-full="photos/storm-seiu-vactor.jpg"
-                                data-caption="SEIU 521 on the hard hat. The people who show up when the drains fail are neighbors, not vendors.">
-                            <img src="photos/storm-seiu-vactor-thumb.jpg"
-                                 alt="A City of Hollister worker wearing a hard hat with an SEIU 521 sticker stands beside a red Vactor truck." loading="lazy" decoding="async" width="1040" height="986">
+                                 alt="Juan Lopez, Maintenance Worker II, points to a control panel on red Vactor equipment at a utility yard." loading="lazy" decoding="async" width="1040" height="780">
                         </button>
                     </div>
 
@@ -885,20 +920,9 @@
 
                 <h2 class="work-heading" id="admin-heading">Engineering does not cut corners</h2>
 
-                <figure class="work-figure work-figure--half">
-                    <img src="photos/admin-team.jpg"
-                         alt="Five City of Hollister administrative and engineering staff standing together in front of a green hedge." loading="lazy" decoding="async" width="501" height="446">
-                    <figcaption>Administration and engineering. The people who keep plans, permits and field work aligned.</figcaption>
-                </figure>
-
-                <div class="card work-copy">
-                    <p>Tania's work is engineering prep, and it is extremely detailed. Specs, schedules, records and the quiet checks that stop a bad plan from becoming a bad job in the street. People who know this system can tell when those details are right. That is how public trust is built.</p>
-                    <p>So why settle for a private company motivated by profit, not public services? Engineering that serves Hollister has to answer to residents, not a margin. Hollow out that desk work and the field pays for it.</p>
-                </div>
-
                 <p class="work-tile-hint">Tap any photo to see it larger</p>
 
-                <div class="work-gallery">
+                <div class="work-gallery work-gallery--lead">
 
                     <div class="work-tile">
                         <button type="button" class="work-tile-btn" data-gallery="admin"
@@ -927,6 +951,11 @@
                         </button>
                     </div>
 
+                </div>
+
+                <div class="card work-copy">
+                    <p>Tania's work is engineering prep, and it is extremely detailed. Specs, schedules, records and the quiet checks that stop a bad plan from becoming a bad job in the street. People who know this system can tell when those details are right. That is how public trust is built.</p>
+                    <p>So why settle for a private company motivated by profit, not public services? Engineering that serves Hollister has to answer to residents, not a margin. Hollow out that desk work and the field pays for it.</p>
                 </div>
 
                 <div class="card work-copy">
