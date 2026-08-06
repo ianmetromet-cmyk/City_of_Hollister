@@ -305,15 +305,23 @@
             display: block;
         }
 
-        /* Engineering section: 3-tile gallery takes the full-width lead role */
+        /* Engineering section: 3-tile gallery as prominent lead tiles.
+           Breaks out of the 900px content column so each photo reads large. */
         .work-gallery--lead {
-            width: 100%;
-            max-width: 100%;
+            --lead-gallery-max: 1480px;
+            width: min(100vw - 3.5rem, var(--lead-gallery-max));
+            max-width: none;
             columns: unset;
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin-bottom: 2.5rem;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 24px;
+            margin: 0 0 2.75rem;
+            position: relative;
+            left: 50%;
+            translate: -50% 0;
+            /* Room for purple offset shadows */
+            padding: 0 2px 14px;
+            box-sizing: border-box;
         }
 
         .work-gallery--lead .work-tile {
@@ -321,8 +329,13 @@
         }
 
         .work-gallery--lead .work-tile-btn {
-            border-width: 5px;
-            box-shadow: 8px 8px 0px var(--electric-purple);
+            border-width: 6px;
+            box-shadow: 10px 10px 0px var(--electric-purple);
+        }
+
+        .work-gallery--lead .work-tile-btn:hover,
+        .work-gallery--lead .work-tile-btn:focus-visible {
+            box-shadow: 12px 12px 0px var(--electric-purple);
         }
 
         .work-figure figcaption {
@@ -575,11 +588,20 @@
             .work-gallery { columns: 2; column-gap: 12px; }
             .work-gallery--lead {
                 columns: unset;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 12px;
+                width: 100%;
+                max-width: 100%;
+                left: auto;
+                translate: none;
+                grid-template-columns: 1fr;
+                gap: 16px;
+                padding-bottom: 12px;
             }
             .work-tile { margin-bottom: 12px; }
             .work-gallery--lead .work-tile { margin: 0; }
+            .work-gallery--lead .work-tile-btn {
+                border-width: 5px;
+                box-shadow: 8px 8px 0px var(--electric-purple);
+            }
             .work-figure {
                 border-width: 4px;
                 box-shadow: 6px 6px 0px var(--electric-purple);
@@ -598,9 +620,17 @@
 
         @media (max-width: 360px) {
             .work-gallery { columns: 1; }
+        }
+
+        /* Mid widths: keep lead tiles large — stack before they shrink into thumbs */
+        @media (max-width: 1100px) and (min-width: 769px) {
             .work-gallery--lead {
-                columns: unset;
+                width: 100%;
+                max-width: 100%;
+                left: auto;
+                translate: none;
                 grid-template-columns: 1fr;
+                gap: 18px;
             }
         }
 
