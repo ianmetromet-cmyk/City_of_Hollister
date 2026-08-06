@@ -212,7 +212,10 @@
 
         /* Large Group Photo */
         .group-photo-container {
-            margin-top: 2rem;
+            margin: 2rem auto;
+            width: 100%;
+            max-width: min(800px, calc(100% - 12px)); /* room for purple offset shadow */
+            box-sizing: border-box;
             border: 6px solid var(--heavy-black);
             box-shadow: 10px 10px 0px var(--electric-purple);
             background: var(--pure-white);
@@ -221,7 +224,10 @@
         
         .group-photo-container img {
             width: 100%;
+            max-width: 100%;
+            height: auto;
             display: block;
+            object-fit: contain;
         }
 
         /* Sticky Container for Desktop */
@@ -602,6 +608,12 @@
                 border-width: 5px;
                 box-shadow: 8px 8px 0px var(--electric-purple);
             }
+            .group-photo-container {
+                border-width: 4px;
+                box-shadow: 6px 6px 0px var(--electric-purple);
+                padding: 6px;
+                max-width: calc(100% - 8px);
+            }
             .work-figure {
                 border-width: 4px;
                 box-shadow: 6px 6px 0px var(--electric-purple);
@@ -653,7 +665,7 @@
     <header>
         <div class="pre-header">WE ARE HOLLISTER</div>
         <h1>Protect Hollister<br>Public Services</h1>
-        <div class="group-photo-container" style="max-width: 800px; margin: 2rem auto;">
+        <div class="group-photo-container">
             <img src="hollister.jpg" alt="SEIU Local 521 Stronger Together" width="1200" height="497">
         </div>
         <div class="subtitle">ADD YOUR NAME IN LESS THAN 1 MINUTE!</div>
@@ -842,8 +854,8 @@
 
                 <figure class="work-figure">
                     <img src="photos/water-posed-duo.jpg"
-                         alt="Rodrigo and Jason of the City of Hollister water crew stand together on a wet residential street in high-visibility vests, one flashing a peace sign and the other a thumbs-up." loading="lazy" decoding="async" width="1820" height="1214">
-                    <figcaption>Rodrigo and Jason. The people who know this system are already here.</figcaption>
+                         alt="Rodrigo and Jacob of the City of Hollister water crew stand together on a wet residential street in high-visibility vests, one flashing a peace sign and the other a thumbs-up." loading="lazy" decoding="async" width="1820" height="1214">
+                    <figcaption>Rodrigo and Jacob. The people who know this system are already here.</figcaption>
                 </figure>
 
                 <div class="card work-copy">
