@@ -284,6 +284,55 @@
             width: 100%;
         }
 
+        .site-nav {
+            background: var(--heavy-black);
+            color: var(--pure-white);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem 1.25rem;
+            justify-content: center;
+            align-items: center;
+            padding: 0.85rem 1rem;
+            border-bottom: 5px solid var(--alert-yellow);
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-weight: 800;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+
+        .site-nav a {
+            color: var(--alert-yellow);
+            text-decoration: none;
+        }
+
+        .site-nav a:hover,
+        .site-nav a:focus-visible {
+            text-decoration: underline;
+        }
+
+        .site-nav .current {
+            color: var(--pure-white);
+        }
+
+        .profile-link {
+            display: inline-block;
+            margin: 0 0 2rem;
+            background: var(--heavy-black);
+            color: var(--alert-yellow);
+            padding: 12px 20px;
+            font-family: 'Arial Black', Impact, 'Segoe UI Black', sans-serif;
+            font-size: clamp(1rem, 3vw, 1.25rem);
+            text-transform: uppercase;
+            text-decoration: none;
+            box-shadow: 5px 5px 0 var(--electric-purple);
+        }
+
+        .profile-link:hover,
+        .profile-link:focus-visible {
+            text-decoration: underline;
+        }
+
         /* The Work You Don't See */
         .work-section {
             width: 100%;
@@ -663,6 +712,12 @@
 </head>
 <body>
 
+    <nav class="site-nav" aria-label="Site">
+        <span class="current" aria-current="page">We Are Hollister</span>
+        <a href="cortez.html">The Cost of Cortez</a>
+        <a href="https://www.seiu521.org/wearehollister">Add your name</a>
+    </nav>
+
     <header>
         <div class="pre-header">WE ARE HOLLISTER</div>
         <h1>Protect Hollister<br>Public Services</h1>
@@ -676,6 +731,8 @@
         
         <!-- ================= TEXT CONTENT ================= -->
         <div class="content-block">
+
+            <a class="profile-link" href="cortez.html">Read The Cost of Cortez →</a>
             
             <!-- Department Faces Banner -->
             <div class="photo-banner" aria-label="City of Hollister departments">

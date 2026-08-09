@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Cost of Cortez | Protect Hollister Public Services</title>
+<style>
+    :root {
+        --electric-purple: #5b0bb5;
+        --alert-yellow: #FFDE00;
+        --heavy-black: #090909;
+        --pure-white: #ffffff;
+        --bg-gray: #f0f0f0;
+        --danger-red: #d8232a;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+        font-family: 'Arial Black', Impact, 'Segoe UI Black', sans-serif;
+        line-height: 1.5;
+        color: var(--heavy-black);
+        margin: 0;
+        padding: 0;
+        background-color: var(--bg-gray);
+        background-image: radial-gradient(#d5d5d5 1px, transparent 0);
+        background-size: 20px 20px;
+    }
+
+    h1, h2, h3 {
+        line-height: 1.1;
+        margin-top: 0;
+        text-transform: uppercase;
+    }
+
+    p, li, .source-note, details {
+        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        font-weight: 600;
+    }
+
+    a { color: inherit; }
+
+    .site-nav {
+        background: var(--heavy-black);
+        color: var(--pure-white);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem 1.25rem;
+        justify-content: center;
+        align-items: center;
+        padding: 0.85rem 1rem;
+        border-bottom: 5px solid var(--alert-yellow);
+        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        font-weight: 800;
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+    }
+
+    .site-nav a {
+        color: var(--alert-yellow);
+        text-decoration: none;
+    }
+
+    .site-nav a:hover,
+    .site-nav a:focus-visible {
+        text-decoration: underline;
+    }
+
+    .site-nav .current {
+        color: var(--pure-white);
+    }
+
+    header {
+        background-color: var(--pure-white);
+        color: var(--heavy-black);
+        text-align: center;
+        padding: 3rem 1rem;
+        border-bottom: 8px solid var(--heavy-black);
+    }
+
+    .pre-header {
+        font-size: clamp(3rem, 8vw, 5.5rem);
+        font-weight: 900;
+        letter-spacing: -2px;
+        margin-bottom: 5px;
+        color: var(--heavy-black);
+        text-transform: uppercase;
+        text-shadow: 4px 4px 0px var(--alert-yellow);
+        line-height: 1;
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: clamp(1.7rem, 4.5vw, 2.8rem);
+        letter-spacing: 0;
+        font-weight: 800;
+    }
+
+    .subtitle {
+        background-color: var(--heavy-black);
+        color: var(--alert-yellow);
+        display: inline-block;
+        padding: 10px 25px;
+        font-size: clamp(1rem, 3vw, 1.55rem);
+        margin-top: 20px;
+        transform: rotate(-2deg);
+        box-shadow: 4px 4px 0px var(--electric-purple);
+        text-decoration: none;
+    }
+
+    .header-note {
+        max-width: 760px;
+        margin: 2rem auto 0;
+        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        font-weight: 700;
+        font-size: 1.05rem;
+    }
+
+    .layout-wrapper {
+        max-width: 900px;
+        margin: 3rem auto;
+        padding: 0 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        align-items: center;
+    }
+
+    .content-block, section { width: 100%; }
+
+    .card {
+        background: var(--pure-white);
+        padding: 2.5rem;
+        border: 5px solid var(--heavy-black);
+        box-shadow: 8px 8px 0px var(--heavy-black);
+        margin-bottom: 2.5rem;
+    }
+
+    .intro-text p {
+        font-size: 1.3rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .highlight-text {
+        background-color: var(--electric-purple);
+        color: var(--pure-white);
+        padding: 2px 8px;
+        font-size: 1.4rem;
+        display: inline;
+    }
+
+    .issues-box {
+        background-color: var(--pure-white);
+        color: var(--heavy-black);
+        border: 5px solid var(--heavy-black);
+        box-shadow: 8px 8px 0px var(--electric-purple);
+        padding: 2.5rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .issues-box h2 {
+        color: var(--electric-purple);
+        font-size: clamp(1.8rem, 5vw, 2.5rem);
+        margin-bottom: 1.5rem;
+    }
+
+    .issues-list {
+        padding-left: 1.2rem;
+        font-size: 1.15rem;
+    }
+
+    .issues-list li { margin-bottom: 1.35rem; }
+
+    .issues-list strong {
+        color: var(--electric-purple);
+        font-size: 1.15rem;
+        text-transform: uppercase;
+        letter-spacing: .5px;
+    }
+
+    .section-heading {
+        background-color: var(--heavy-black);
+        color: var(--alert-yellow);
+        display: inline-block;
+        font-size: clamp(1.5rem, 4.5vw, 2.3rem);
+        padding: 12px 24px;
+        margin: 0 0 1.75rem;
+        box-shadow: 6px 6px 0px var(--electric-purple);
+    }
+
+    .failure-number {
+        display: inline-block;
+        background: var(--electric-purple);
+        color: var(--pure-white);
+        border: 4px solid var(--heavy-black);
+        padding: 6px 12px;
+        margin-bottom: 1rem;
+        font-size: .95rem;
+        font-weight: 900;
+        text-transform: uppercase;
+        transform: rotate(-1deg);
+    }
+
+    .failure-card {
+        background: var(--pure-white);
+        border: 5px solid var(--heavy-black);
+        box-shadow: 8px 8px 0px var(--electric-purple);
+        padding: 2.5rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .failure-card h3 {
+        color: var(--electric-purple);
+        font-size: clamp(1.6rem, 4vw, 2.15rem);
+        margin-bottom: 1rem;
+    }
+
+    .failure-card p {
+        font-size: 1.12rem;
+        margin: 0 0 1.1rem;
+    }
+
+    .failure-card p:last-child { margin-bottom: 0; }
+
+    .big-number {
+        font-family: 'Arial Black', Impact, sans-serif;
+        font-size: clamp(3rem, 9vw, 5rem);
+        letter-spacing: -3px;
+        line-height: .95;
+        margin: .5rem 0 1rem;
+    }
+
+    .big-number span {
+        display: block;
+        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        font-size: .95rem;
+        letter-spacing: 0;
+        line-height: 1.35;
+        margin-top: .75rem;
+    }
+
+    .warning-strip {
+        background-color: var(--heavy-black);
+        color: var(--pure-white);
+        border: 5px solid var(--heavy-black);
+        box-shadow: 8px 8px 0px var(--alert-yellow);
+        padding: 2.5rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .warning-strip h3 {
+        color: var(--alert-yellow);
+        font-size: clamp(1.5rem, 4vw, 2.15rem);
+        margin-bottom: 1rem;
+    }
+
+    .warning-strip p {
+        font-size: 1.15rem;
+        margin: 0 0 1rem;
+    }
+
+    .warning-strip strong { color: var(--alert-yellow); }
+
+    .money-box {
+        background: var(--alert-yellow);
+        border: 5px solid var(--heavy-black);
+        box-shadow: 8px 8px 0px var(--electric-purple);
+        padding: 2.5rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .money-box h2 {
+        font-size: clamp(1.8rem, 5vw, 2.6rem);
+        margin-bottom: 1rem;
+    }
+
+    .money-box p {
+        font-size: 1.12rem;
+        margin: 0 0 1rem;
+    }
+
+    .pay-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 15px;
+        margin: 1.75rem 0;
+    }
+
+    .pay-item {
+        background: var(--pure-white);
+        border: 4px solid var(--heavy-black);
+        box-shadow: 5px 5px 0px var(--heavy-black);
+        padding: 1.1rem;
+    }
+
+    .pay-item .role {
+        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        font-weight: 800;
+        font-size: .88rem;
+        text-transform: uppercase;
+    }
+
+    .pay-item .name {
+        font-size: 1.15rem;
+        text-transform: uppercase;
+        margin: .2rem 0;
+    }
+
+    .pay-item .salary {
+        color: var(--electric-purple);
+        font-size: 1.55rem;
+        line-height: 1;
+    }
+
+    .math-line {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        border-top: 4px solid var(--heavy-black);
+        padding: .8rem 0;
+        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        font-weight: 900;
+        font-size: 1.05rem;
+    }
+
+    .math-line.total {
+        font-family: 'Arial Black', Impact, sans-serif;
+        font-size: 1.3rem;
+        color: var(--electric-purple);
+    }
+
+    .quote-card {
+        background: var(--pure-white);
+        border: 5px solid var(--heavy-black);
+        box-shadow: 8px 8px 0px var(--heavy-black);
+        padding: 2.5rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .quote-card blockquote {
+        margin: 0;
+        font-family: 'Arial Black', Impact, sans-serif;
+        text-transform: uppercase;
+        color: var(--electric-purple);
+        font-size: clamp(1.35rem, 4vw, 2rem);
+        line-height: 1.2;
+    }
+
+    .quote-card .source-note {
+        display: block;
+        margin-top: 1rem;
+        font-size: .9rem;
+    }
+
+    .question-box {
+        background: var(--pure-white);
+        border: 5px solid var(--heavy-black);
+        box-shadow: 8px 8px 0px var(--electric-purple);
+        padding: 2.5rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .question-box h2 {
+        color: var(--electric-purple);
+        font-size: clamp(1.8rem, 5vw, 2.5rem);
+    }
+
+    .question {
+        border-top: 4px solid var(--heavy-black);
+        padding: 1.15rem 0;
+        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        font-weight: 800;
+        font-size: 1.08rem;
+    }
+
+    .question:first-of-type { border-top: 0; }
+
+    .failure-summary {
+        background: var(--electric-purple);
+        color: var(--pure-white);
+        border: 5px solid var(--heavy-black);
+        box-shadow: 8px 8px 0px var(--heavy-black);
+        padding: 2.5rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .failure-summary h2 {
+        color: var(--alert-yellow);
+        font-size: clamp(1.8rem, 5vw, 2.6rem);
+    }
+
+    .failure-summary .summary-line {
+        border-top: 3px solid rgba(255,255,255,.65);
+        padding: 1rem 0;
+        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        font-size: 1.05rem;
+        font-weight: 700;
+    }
+
+    .failure-summary .summary-line strong {
+        color: var(--alert-yellow);
+        text-transform: uppercase;
+    }
+
+    .source-box {
+        background: var(--pure-white);
+        border: 5px solid var(--heavy-black);
+        padding: 2rem;
+        box-shadow: 8px 8px 0px var(--heavy-black);
+    }
+
+    details {
+        border-top: 3px solid var(--heavy-black);
+        padding: 1rem 0;
+    }
+
+    details:first-of-type { border-top: 0; }
+
+    summary {
+        cursor: pointer;
+        font-family: 'Arial Black', Impact, sans-serif;
+        color: var(--electric-purple);
+        text-transform: uppercase;
+        font-size: 1.05rem;
+    }
+
+    details li { margin-bottom: .65rem; }
+
+    .accuracy {
+        background: var(--bg-gray);
+        border: 3px solid var(--heavy-black);
+        padding: 1rem 1.25rem;
+        margin-top: 1.5rem;
+        font-size: .88rem;
+    }
+
+    .doc-figure {
+        margin: 1.5rem 0 0;
+        border: 4px solid var(--heavy-black);
+        box-shadow: 6px 6px 0px var(--electric-purple);
+        background: var(--pure-white);
+    }
+
+    .doc-figure img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .doc-figure figcaption {
+        background: var(--alert-yellow);
+        border-top: 4px solid var(--heavy-black);
+        padding: 10px 14px;
+        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        font-weight: 700;
+        font-size: 0.92rem;
+    }
+
+    .doc-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+        margin-top: 1.5rem;
+    }
+
+    .cta {
+        text-align: center;
+        background: var(--pure-white);
+        border: 6px solid var(--heavy-black);
+        box-shadow: 12px 12px 0px var(--electric-purple);
+        padding: 2.5rem;
+    }
+
+    .cta h2 {
+        font-size: clamp(2rem, 6vw, 3rem);
+        margin-bottom: 1rem;
+    }
+
+    .cta p {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .cta a {
+        background: var(--heavy-black);
+        color: var(--alert-yellow);
+        display: inline-block;
+        padding: 12px 22px;
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        text-decoration: none;
+        box-shadow: 5px 5px 0px var(--electric-purple);
+        transform: rotate(-1deg);
+        margin: 0.35rem;
+    }
+
+    footer {
+        text-align: center;
+        padding: 3rem;
+        background-color: var(--heavy-black);
+        color: var(--pure-white);
+        font-family: 'Segoe UI', sans-serif;
+        font-weight: bold;
+        font-size: 1rem;
+        margin-top: 4rem;
+        border-top: 8px solid var(--alert-yellow);
+    }
+
+    footer strong { color: var(--alert-yellow); }
+
+    @media (max-width: 768px) {
+        .layout-wrapper { padding: 0 1rem; }
+        .card, .issues-box, .failure-card, .warning-strip, .money-box,
+        .quote-card, .question-box, .failure-summary, .source-box, .cta {
+            padding: 1.5rem;
+        }
+        .subtitle { font-size: 1rem; transform: rotate(0); padding: 8px 15px; }
+        .pay-grid, .doc-grid { grid-template-columns: 1fr; }
+        .big-number { letter-spacing: -2px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .subtitle, .failure-number, .cta a { transform: none; }
+    }
+</style>
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Site">
+    <a href="index.html">We Are Hollister</a>
+    <span class="current" aria-current="page">The Cost of Cortez</span>
+    <a href="https://www.seiu521.org/wearehollister">Add your name</a>
+</nav>
+
+<header>
+    <div class="pre-header">WE ARE HOLLISTER</div>
+    <h1>The Cost of Cortez</h1>
+    <div class="subtitle">3 CITIES. 3 FAILURES. WILL HOLLISTER BE #4?</div>
+    <p class="header-note">
+        Before Hollister cuts more workers or turns public services over to outside contractors,
+        residents deserve to examine the record of the City Manager leading the restructuring.
+    </p>
+</header>
+
+<div class="layout-wrapper">
+
+    <section>
+        <div class="card intro-text">
+            <p><span class="highlight-text">THE RECORD AT THE TOP</span></p>
+            <p>
+                Ana Cortez's earlier résumé includes conventional career advancement. But once she moved into
+                top municipal leadership, the outcomes changed. Helena, Leavenworth and Carnation did not fail
+                in exactly the same way. What they share is that <strong>the management arrangement itself did not endure.</strong>
+            </p>
+        </div>
+
+        <div class="issues-box">
+            <h2>Three different kinds of failure:</h2>
+            <ul class="issues-list">
+                <li><strong>Helena:</strong> reforms accompanied by a breakdown in the employee-management relationship and a costly mutual separation.</li>
+                <li><strong>Leavenworth:</strong> the administrator structure was changed so the mayor resumed direct supervision of City staff before Cortez resigned.</li>
+                <li><strong>Carnation:</strong> the workforce strategy was reversed through arbitration after all four bargaining-unit employees were terminated.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-heading">HER OWN FILING: CITY MANAGER OF HOLLISTER</h2>
+        <div class="failure-card">
+            <div class="failure-number">Form 700-P</div>
+            <h3>Prospective employment accepted February 2, 2026.</h3>
+            <p>
+                Cortez’s California Form 700-P lists the City of Hollister as prospective employer,
+                business position <strong>City Manager</strong>, address 375 Fifth Street, Hollister,
+                and <strong>date of acceptance of employment offer: 02/02/26</strong>.
+            </p>
+            <figure class="doc-figure">
+                <img src="photos/cortez-form-700p.jpg" alt="Ana Cortez Form 700-P listing City of Hollister as City Manager with acceptance date February 2, 2026" width="776" height="1024" loading="lazy" decoding="async">
+                <figcaption>FPPC Form 700-P (2025/2026). Prospective employer: City of Hollister. Position: City Manager. Acceptance: 02/02/26.</figcaption>
+            </figure>
+            <p style="margin-top:1.25rem">
+                <a href="photos/Cortez_Ana_2026_Form700.pdf">Download the Form 700 PDF</a>
+            </p>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-heading">FAILURE #1: HELENA, MONTANA</h2>
+
+        <div class="failure-card">
+            <div class="failure-number">Leadership failure</div>
+            <h3>She delivered reforms. The leadership relationship still broke down.</h3>
+            <p>
+                Helena credited Cortez with real fiscal and operational reforms, including budget, procurement
+                and process changes. But an outside investigation also documented a serious rift with staff and
+                communication problems. The harassment allegations themselves were not sustained as violations of City policy.
+            </p>
+            <p>
+                The City and Cortez ultimately agreed to end the relationship after roughly a year.
+            </p>
+            <div class="big-number">$163,887.51
+                <span>reported mutual-separation payout</span>
+            </div>
+            <div class="big-number">$32K+
+                <span>reported outside legal expenses involving issues related to Cortez</span>
+            </div>
+        </div>
+
+        <div class="warning-strip">
+            <h3>The failure wasn't that nothing got done.</h3>
+            <p>
+                It was that the City paid heavily to end a leadership relationship despite the reforms it credited Cortez with delivering.
+            </p>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-heading">FAILURE #2: LEAVENWORTH, WASHINGTON</h2>
+
+        <div class="failure-card">
+            <div class="failure-number">Structural failure</div>
+            <h3>Hired to administer the organization. The mayor took staff supervision back.</h3>
+            <p>
+                In 2021, Leavenworth restructured the City Administrator role so Mayor Carl Florea resumed
+                direct supervision of City staff while Cortez shifted toward strategic projects. Cortez resigned months later.
+            </p>
+            <p>
+                This is not a Carnation-style labor judgment or financial scandal. The failure is narrower:
+                <strong>the operating model Cortez was hired to lead did not survive her tenure.</strong>
+            </p>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-heading">FAILURE #3: CARNATION, WASHINGTON</h2>
+
+        <div class="failure-card">
+            <div class="failure-number">Labor + outsourcing failure</div>
+            <h3>Four union jobs eliminated. The arbitrator made the City unwind the strategy.</h3>
+            <p>
+                Cortez's administration eliminated all four bargaining-unit employees. Research materials summarizing
+                the arbitration show that the City subsequently used contractors and/or non-bargaining-unit personnel
+                for bargaining-unit work and failed to timely fill covered positions.
+            </p>
+            <p>
+                The arbitrator ordered the City to offer reinstatement, provide full back pay and stop improperly
+                contracting out bargaining-unit work.
+            </p>
+        </div>
+
+        <div class="quote-card">
+            <blockquote>
+                “The staff we have now reflect a city that is entrepreneurial, that is innovative.”
+            </blockquote>
+            <span class="source-note">
+                Statement attributed to Cortez in reporting summarized in the research file after the Carnation layoffs.
+            </span>
+        </div>
+
+        <div class="money-box">
+            <h2>What followed?</h2>
+            <div class="big-number">$120,076
+                <span>reported separation package</span>
+            </div>
+            <div class="big-number">$37,500
+                <span>reported salary during the employment extension after Cortez stopped performing City Manager duties</span>
+            </div>
+            <p>
+                Teamsters estimated back-pay exposure at approximately <strong>$500,000</strong>.
+                That number is a union estimate, not a verified final City payment.
+            </p>
+        </div>
+
+        <div class="warning-strip">
+            <h3>Workers cut. Contractors used. Jobs ordered back.</h3>
+            <p>
+                Carnation is the clearest warning for Hollister because the efficiency strategy did not survive neutral review.
+            </p>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-heading">WILL HOLLISTER BE FAILURE #4?</h2>
+
+        <div class="failure-card">
+            <div class="failure-number">The warning signs are here</div>
+            <h3>The final outcome is not written yet.</h3>
+            <p>
+                Hollister has already eliminated three Community Development positions, discussed broader workforce reductions,
+                explored outside service delivery and added management and administrative capacity.
+            </p>
+            <p>
+                The larger layoff proposal was delayed when the Council used a roughly <strong>$20 million sewer-fund loan</strong>
+                to balance the FY 2026–27 budget. Animal Care &amp; Services remains City-operated in the current public record.
+            </p>
+            <p>
+                That means Hollister still has a choice: scrutinize the restructuring now, or find out later what the actual
+                costs are after experienced workers and public capacity are gone.
+            </p>
+        </div>
+
+        <div class="issues-box">
+            <h2>What has already changed?</h2>
+            <ul class="issues-list">
+                <li><strong>Community Development:</strong> three senior positions eliminated in an early reorganization.</li>
+                <li><strong>Workforce:</strong> Cortez has discussed moving from roughly 201 authorized positions to 174.</li>
+                <li><strong>Animal Services:</strong> City emails showed exploration of a third-party/nonprofit operating model.</li>
+                <li><strong>Former employees:</strong> three former officials filed serious complaints. Those claims remain allegations unless substantiated.</li>
+                <li><strong>Management growth:</strong> the City has simultaneously brought in, appointed or advertised senior management and administrative capacity.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-heading">CUT WORKERS. ADD MANAGEMENT. CALL IT SAVINGS?</h2>
+
+        <div class="money-box">
+            <h2>Where did the $936,000 in projected savings go?</h2>
+            <p>
+                Cortez projected approximately <strong>$936,000</strong> in annual savings from the Community Development reorganization.
+                During the same period, Hollister brought in, appointed or placed people into senior management and City Manager-office roles.
+            </p>
+
+            <div class="pay-grid">
+                <div class="pay-item">
+                    <div class="role">City Manager</div>
+                    <div class="name">Ana Cortez</div>
+                    <div class="salary">$265,000</div>
+                    <div class="source-note">base salary</div>
+                </div>
+
+                <div class="pay-item">
+                    <div class="role">Finance Director</div>
+                    <div class="name">Jessica O'Connell</div>
+                    <div class="salary">$178,141+</div>
+                    <div class="source-note">published minimum used</div>
+                </div>
+
+                <div class="pay-item">
+                    <div class="role">HR / Risk / Technology leadership</div>
+                    <div class="name">Noel Mink</div>
+                    <div class="salary">$178,141+</div>
+                    <div class="source-note">new director classification minimum used</div>
+                </div>
+
+                <div class="pay-item">
+                    <div class="role">City Manager's Office</div>
+                    <div class="name">Leah Calderon</div>
+                    <div class="salary">$90,410+</div>
+                    <div class="source-note">Administrative Analyst minimum used</div>
+                </div>
+
+                <div class="pay-item">
+                    <div class="role">Interim Fire Chief</div>
+                    <div class="name">Stephen Healy</div>
+                    <div class="salary">$102,317 max</div>
+                    <div class="source-note">$106.58/hr × up to 960 authorized hours</div>
+                </div>
+
+                <div class="pay-item">
+                    <div class="role">Interim Parks Director</div>
+                    <div class="name">Karen Crocker</div>
+                    <div class="salary">$98,266 max</div>
+                    <div class="source-note">$102.36/hr × up to 960 authorized hours</div>
+                </div>
+            </div>
+
+            <div class="math-line">
+                <span>Claimed Community Development savings</span>
+                <span>$936,000</span>
+            </div>
+            <div class="math-line">
+                <span>Six 2026 management / administrative pay commitments</span>
+                <span>− $912,274</span>
+            </div>
+            <div class="math-line total">
+                <span>Difference before benefits</span>
+                <span>$23,726</span>
+            </div>
+
+            <p>
+                On this comparison, the published or authorized pay attached to these six placements equals roughly
+                <strong>97.5% of the $936,000 savings claim before benefits.</strong>
+            </p>
+
+            <p>
+                Hollister also opened recruitment for a new <strong>Deputy Finance Officer — Construction &amp; Capital Management</strong>
+                at a published minimum of approximately <strong>$153,890</strong>. Adding only that minimum pushes the comparison
+                above <strong>$1.06 million</strong>.
+            </p>
+
+            <div class="accuracy">
+                <strong>Accuracy note:</strong> This is a comparison of management and administrative payroll commitments during the same period,
+                not a claim that every dollar is a net-new expense caused by the Community Development reorganization.
+                Some positions replace vacancies or temporarily fill existing leadership roles. The question is how much net savings remains
+                after all management, benefit, pension, consultant and overtime costs are counted.
+            </div>
+        </div>
+
+        <div class="warning-strip">
+            <h3>And base salary isn't total compensation.</h3>
+            <p>
+                Permanent managers are also eligible for City-paid benefits. Once health coverage, pension contributions,
+                life and disability insurance, leave and other compensation are included, the City's actual management cost is higher.
+            </p>
+            <p>
+                <strong>If frontline workers are being told the City must do more with less, residents deserve the complete management-cost calculation too.</strong>
+            </p>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-heading">MUNITALENT: WHO CONTROLLED THE RECRUITMENT?</h2>
+
+        <div class="failure-card">
+            <h3>The City Manager's private business appeared in a Hollister executive recruitment.</h3>
+            <p>
+                Cortez's Form 700 Schedule A-2 identifies <strong>MuniTalent</strong> as her private business:
+                sole proprietorship, owner, fair market value and gross income each reported in the
+                <strong>$10,001–$100,000</strong> range, with municipal services consulting as the business description.
+            </p>
+            <p>
+                The same schedule lists single sources of income of $10,000 or more from
+                <strong>City of Kirkland WA</strong>, <strong>City of Marysville CA</strong> and <strong>City of Renton WA</strong>.
+            </p>
+            <p>
+                Research materials show the Hollister Human Resources, Risk &amp; Technology Director recruitment appeared
+                through MuniTalent channels while Cortez was City Manager and ultimate hiring authority.
+                Cortez has said the service was performed without charge. An ethics expert cited by Santa Clara University's
+                Markkula Center characterized the ethical risk as relatively low while questioning the absence of independent “guardrails.”
+            </p>
+            <figure class="doc-figure">
+                <img src="photos/cortez-form-700-a2.jpg" alt="Ana Cortez Form 700 Schedule A-2 listing MuniTalent sole proprietorship and income from Kirkland, Marysville and Renton" width="781" height="1024" loading="lazy" decoding="async">
+                <figcaption>FPPC Form 700 Schedule A-2 (2025/2026). Business: MuniTalent. Owner. Income sources include Kirkland WA, Marysville CA and Renton WA.</figcaption>
+            </figure>
+        </div>
+
+        <div class="issues-box">
+            <h2>Questions that deserve answers:</h2>
+            <ul class="issues-list">
+                <li>Why did the MuniTalent version direct applicants to <strong>CORTEZ@MUNITALENT.COM</strong>?</li>
+                <li>Why did the MuniTalent material reportedly advertise a different salary range than the City's posting?</li>
+                <li>Who authorized use of the City Manager's private business in a City recruitment?</li>
+                <li>What independent safeguards governed candidate screening and selection?</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-heading">OUTSIDE WORK WHILE RUNNING HOLLISTER</h2>
+
+        <div class="failure-card">
+            <h3>$41,000 Renton consulting contract. Expanded after Cortez started in Hollister.</h3>
+            <p>
+                A City of Renton amendment signed in March 2026 increased Cortez's consulting agreement from
+                $11,300 to a maximum of <strong>$41,000</strong>, authorized up to <strong>220 additional hours at $135/hour</strong>,
+                and extended the work through December 31, 2026.
+            </p>
+            <p>
+                Cortez began as Hollister City Manager on February 2. Her Hollister agreement makes City business the priority
+                and, after July 1, limits compensated outside work to 12 hours per month without express prior Council consent.
+            </p>
+            <p>
+                Her own Form 700 already lists Renton among MuniTalent income sources of $10,000 or more. This overlap does
+                <strong>not</strong> itself prove a contract violation. The City should release the Renton invoices,
+                actual work dates, monthly hours and any Hollister Council approvals.
+            </p>
+        </div>
+    </section>
+
+    <section>
+        <div class="failure-summary">
+            <h2>THE FAILURE FILE</h2>
+            <div class="summary-line"><strong>Helena:</strong> leadership relationship deteriorated despite reforms → costly mutual separation.</div>
+            <div class="summary-line"><strong>Leavenworth:</strong> administrator structure changed → mayor resumed staff supervision → Cortez resigned.</div>
+            <div class="summary-line"><strong>Carnation:</strong> union workforce eliminated → neutral arbitrator orders reinstatement and back pay.</div>
+            <div class="summary-line"><strong>Hollister:</strong> cuts, outsourcing discussions and management growth → outcome still in progress.</div>
+        </div>
+    </section>
+
+    <section>
+        <div class="question-box">
+            <h2>Before one more worker is cut:</h2>
+            <div class="question">Where is the workload and service-level analysis showing Hollister can safely operate with substantially fewer authorized positions?</div>
+            <div class="question">How much of the advertised savings returns as management pay, benefits, overtime, consultants, contractors or temporary managers?</div>
+            <div class="question">What did the City's background investigation find about Helena, Leavenworth and Carnation before Cortez was hired?</div>
+            <div class="question">What happened to the former Hollister employees' complaint, and was there an independent investigation?</div>
+            <div class="question">How many Renton consulting hours were worked after July 1, and did Council approve outside work above the contractual monthly threshold?</div>
+            <div class="question">What public work is currently being considered for contractors, nonprofits or outside vendors?</div>
+        </div>
+    </section>
+
+    <section>
+        <div class="source-box">
+            <h2 class="section-heading">RECEIPTS</h2>
+
+            <details open>
+                <summary>Hollister</summary>
+                <ul>
+                    <li><a href="https://benitolink.com/hollister-city-council-appoints-new-top-administrator/">BenitoLink — Hollister City Council appoints new top administrator</a></li>
+                    <li><a href="https://benitolink.com/former-employees-file-complaint-against-hollister-city-manager/">BenitoLink — Former employees file complaint against Hollister city manager</a></li>
+                    <li><a href="https://www.scu.edu/ethics/media-mentions/stories/hollister-city-managers-use-of-own-recruiting-firm-for-city-hiring-raises-concerns.html">Markkula Center for Applied Ethics — MuniTalent concerns</a></li>
+                    <li><a href="https://thesanbenitoblueprint.com/2026/04/06/facing-crisis-of-public-opinion-hollister-to-vote-on-consolidation-of-the-community-development-department/">San Benito Blueprint — Community Development consolidation</a></li>
+                    <li><a href="photos/Cortez_Ana_2026_Form700.pdf">Ana Cortez Form 700 filing (PDF)</a></li>
+                </ul>
+            </details>
+
+            <details>
+                <summary>Carnation</summary>
+                <ul>
+                    <li><a href="https://www.valleyrecord.com/2024/08/10/carnation-city-manager-gets-120000-severance-package/">Snoqualmie Valley Record — Carnation city manager gets $120,000 severance package</a></li>
+                    <li>Arbitration excerpts and Teamsters materials compiled in the campaign research file.</li>
+                </ul>
+            </details>
+
+            <details>
+                <summary>Helena</summary>
+                <ul>
+                    <li><a href="https://www.kxlh.com/news/local-news/helena-news/helena-city-commission-holds-evaluation-on-city-manager-cortez">KXLH — Helena evaluation</a></li>
+                    <li><a href="https://www.ktvh.com/news/helena-news/helena-city-leaders-cortez-agree-to-contract-termination">KTVH — Helena contract termination</a></li>
+                    <li><a href="https://www.krtv.com/news/montana-and-regional-news/helena-city-manager-cortez-agrees-to-contract-termination">KRTV — Helena contract termination</a></li>
+                </ul>
+            </details>
+
+            <details>
+                <summary>Renton consulting</summary>
+                <ul>
+                    <li>City of Renton — Amendment No. 1 to Agreement for Parks and Recreation Processes Consultant, CAG-25-301, signed March 2026.</li>
+                </ul>
+            </details>
+
+            <div class="accuracy">
+                <strong>Research standard:</strong> complaints are identified as allegations; the approximately $500,000 Carnation back-pay figure
+                is attributed to Teamsters; Helena's harassment allegations are expressly identified as not sustained as City-policy violations;
+                and the Renton consulting overlap is framed as a records/compliance question rather than a proven contract violation.
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="cta">
+            <h2>PROTECT HOLLISTER PUBLIC SERVICES</h2>
+            <p>
+                City workers are asking Hollister to protect public services, preserve experienced crews and give workers and residents
+                a real seat at the table before major restructuring decisions are made.
+            </p>
+            <a href="index.html">BACK TO WE ARE HOLLISTER</a>
+            <a href="https://www.seiu521.org/wearehollister">ADD YOUR NAME</a>
+        </div>
+    </section>
+
+</div>
+
+<footer>
+    <strong>THE COST OF CORTEZ</strong><br>
+    Public-record accountability research for the Protect Hollister Public Services campaign.
+</footer>
+
+</body>
+</html>
