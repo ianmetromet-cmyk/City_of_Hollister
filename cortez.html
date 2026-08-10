@@ -193,13 +193,15 @@
         display: inline-block;
         background: var(--electric-purple);
         color: var(--pure-white);
-        border: 4px solid var(--heavy-black);
-        padding: 6px 12px;
-        margin-bottom: 1rem;
-        font-size: .95rem;
+        border: 5px solid var(--heavy-black);
+        padding: 12px 22px;
+        margin-bottom: 1.15rem;
+        font-size: clamp(1.35rem, 3.2vw, 1.85rem);
         font-weight: 900;
+        letter-spacing: 0.02em;
+        line-height: 1.15;
         text-transform: uppercase;
-        transform: rotate(-1deg);
+        transform: rotate(-1.5deg);
     }
 
     .failure-card {
@@ -442,6 +444,21 @@
         background: var(--pure-white);
     }
 
+    .doc-figure--hero {
+        width: min(100vw - 2rem, 1180px);
+        margin: 0 auto;
+        border-width: 6px;
+        box-shadow: 10px 10px 0px var(--electric-purple);
+        position: relative;
+        left: 50%;
+        translate: -50% 0;
+    }
+
+    .doc-figure--hero figcaption {
+        font-size: 1.05rem;
+        padding: 14px 18px;
+    }
+
     .doc-figure img {
         width: 100%;
         height: auto;
@@ -455,6 +472,24 @@
         font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         font-weight: 700;
         font-size: 0.92rem;
+    }
+
+    .reported-quote {
+        background: var(--bg-gray);
+        border: 4px solid var(--heavy-black);
+        border-left: 10px solid var(--electric-purple);
+        padding: 1.15rem 1.35rem;
+        margin: 1.25rem 0;
+        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        font-size: 1.08rem;
+        font-weight: 700;
+        font-style: italic;
+    }
+
+    .reported-quote + .source-note {
+        display: block;
+        margin-top: -0.5rem;
+        margin-bottom: 1.25rem;
     }
 
     .doc-grid {
@@ -518,6 +553,11 @@
         }
         .subtitle { font-size: 1rem; transform: rotate(0); padding: 8px 15px; }
         .pay-grid, .doc-grid { grid-template-columns: 1fr; }
+        .doc-figure--hero {
+            width: 100%;
+            left: auto;
+            translate: none;
+        }
         .big-number { letter-spacing: -2px; }
     }
 
@@ -546,17 +586,11 @@
 
 <div class="layout-wrapper">
 
-    <section aria-label="Ana Cortez in public meetings">
-        <div class="doc-grid" style="margin-bottom: 2rem;">
-            <figure class="doc-figure">
-                <img src="photos/cortez-meeting-gesture.jpg" alt="Ana Cortez mid-speech at a meeting table, hand raised, with a colleague looking on" width="1400" height="930" loading="eager" decoding="async">
-                <figcaption>Ana Cortez at the table. The record below is why workers and residents are watching.</figcaption>
-            </figure>
-            <figure class="doc-figure">
-                <img src="photos/cortez-meeting-shrug.jpg" alt="Ana Cortez seated at a meeting table with both arms open in a shrug while speaking" width="1400" height="787" loading="eager" decoding="async">
-                <figcaption>Hollister’s City Manager. Same office that is asking workers to absorb cuts.</figcaption>
-            </figure>
-        </div>
+    <section aria-label="Ana Cortez at the table">
+        <figure class="doc-figure doc-figure--hero">
+            <img src="photos/cortez-meeting-gesture.jpg" alt="High-contrast photo of Ana Cortez mid-speech at a meeting table, hand raised, with a colleague looking on" width="1799" height="1123" loading="eager" decoding="async">
+            <figcaption>Ana Cortez at the table. The record below is why workers and residents are watching.</figcaption>
+        </figure>
     </section>
 
     <section>
@@ -675,6 +709,18 @@
                 <figcaption>Hollister City Council regular meeting, February 2, 2026. Council voted 5-0 to install Ana Cortez as City Manager.</figcaption>
             </figure>
         </div>
+
+        <figure class="doc-figure doc-figure--hero">
+            <img src="photos/cortez-welcome-handshake.jpg" alt="High-contrast photo from the City of Hollister Facebook post welcoming Ana Cortez as City Manager, handshake beside an American flag" width="1423" height="1700" loading="lazy" decoding="async">
+            <figcaption>From the City’s own welcome post. The smiling hire photo is not the full record.</figcaption>
+        </figure>
+    </section>
+
+    <section aria-label="Ana Cortez gesture">
+        <figure class="doc-figure doc-figure--hero">
+            <img src="photos/cortez-meeting-shrug.jpg" alt="High-contrast photo of Ana Cortez at a meeting table with both arms open while speaking" width="1799" height="850" loading="lazy" decoding="async">
+            <figcaption>Hollister’s City Manager. Same office that is asking workers to absorb cuts.</figcaption>
+        </figure>
     </section>
 
     <section>
@@ -690,6 +736,47 @@
                 <li><strong>Management growth:</strong> the City has simultaneously brought in, appointed or advertised senior management and administrative capacity.</li>
             </ul>
         </div>
+    </section>
+
+    <section>
+        <h2 class="section-heading">REPORTED COMMENTS</h2>
+
+        <div class="failure-card">
+            <div class="failure-number">Allegations on the record</div>
+            <h3>Three former Hollister officials put their names to a complaint. These claims are not proven facts.</h3>
+            <p>
+                On April 6, 2026, the same day Council approved Cortez’s Community Development reorganization,
+                former assistant city manager Rod Powell, building official Gabriel Martinez and cannabis affairs
+                manager Maria Mendez filed a complaint alleging retaliation, a hostile work environment and improper practices.
+                BenitoLink reported the contents. Cortez and most elected officials did not comment to the paper.
+            </p>
+
+            <div class="reported-quote">
+                “This conduct has created an atmosphere of fear, instability, and diminished morale, and appears retaliatory in nature toward staff who attempt to provide context, raise concerns, or adhere to established procedures.”
+            </div>
+            <span class="source-note">From the former employees’ complaint, as reported by BenitoLink.</span>
+
+            <p>
+                The complaint also alleges intimidation, threats to job security and arbitrary reassignment of duties
+                since Cortez arrived in February. The former employees further allege Cortez made comments preferring
+                younger hires because experienced or older workers cost the city more, and expressed a preference for
+                hiring women for certain positions. Those claims raise discrimination concerns if true. They remain allegations.
+            </p>
+
+            <div class="reported-quote">
+                The complainants say Cortez directed staff to solicit “large” or “big” sponsorships or donations from city contractors because the city pays them “substantial sums.”
+            </div>
+            <span class="source-note">Pay-to-play concern attributed to the complaint in BenitoLink reporting. Not an adjudicated finding.</span>
+
+            <p>
+                <strong>Workers and residents deserve an independent investigation with public findings, not silence while restructuring continues.</strong>
+            </p>
+        </div>
+
+        <figure class="doc-figure doc-figure--hero">
+            <img src="photos/cortez-welcome-portrait.jpg" alt="High-contrast cropped portrait of Ana Cortez from the City of Hollister welcome announcement" width="839" height="1600" loading="lazy" decoding="async">
+            <figcaption>The welcome smile. Workers are living with what came after.</figcaption>
+        </figure>
     </section>
 
     <section>
@@ -794,16 +881,6 @@
                 sole proprietorship, owner, fair market value and gross income each reported in the
                 <strong>$10,001–$100,000</strong> range, with municipal services consulting as the business description.
             </p>
-            <p>
-                The same schedule lists single sources of income of $10,000 or more from
-                <strong>City of Kirkland WA</strong>, <strong>City of Marysville CA</strong> and <strong>City of Renton WA</strong>.
-            </p>
-            <p>
-                Research materials show the Hollister Human Resources, Risk &amp; Technology Director recruitment appeared
-                through MuniTalent channels while Cortez was City Manager and ultimate hiring authority.
-                Cortez has said the service was performed without charge. An ethics expert cited by Santa Clara University's
-                Markkula Center characterized the ethical risk as relatively low while questioning the absence of independent “guardrails.”
-            </p>
             <figure class="doc-figure">
                 <img src="photos/cortez-form-700-a2.jpg" alt="Ana Cortez Form 700 Schedule A-2 listing MuniTalent sole proprietorship and income from Kirkland, Marysville and Renton" width="781" height="1024" loading="lazy" decoding="async">
                 <figcaption>FPPC Form 700 Schedule A-2 (2025/2026). Business: MuniTalent. Owner. Income sources include Kirkland WA, Marysville CA and Renton WA.</figcaption>
@@ -826,12 +903,6 @@
                 pay for schools, roads, health systems and the public services residents rely on. Cortez’s private
                 firm used that tax rate as a selling point to pull municipal talent toward other jurisdictions while
                 MuniTalent collected consulting income from the same cities her Form 700 lists as clients.
-            </p>
-            <p>
-                When a City Manager’s side business grows by treating public payrolls and public tax structures as
-                inventory for private placement, residents should ask who the model is built to serve. Hollister workers
-                are told the City must cut, consolidate and outsource. Cortez’s brand sold the opposite story to
-                candidates: leave California’s public revenue base behind so a private recruiter can close the deal.
             </p>
             <figure class="doc-figure">
                 <img src="photos/cortez-munitalent-linkedin.jpg" alt="LinkedIn post by Ana Cortez as municipal services consultant advertising Marysville and Renton jobs via MuniTalent, citing Washington’s lack of income tax" width="872" height="1024" loading="lazy" decoding="async">
@@ -906,6 +977,7 @@
                 <summary>Hollister</summary>
                 <ul>
                     <li><a href="https://benitolink.com/hollister-city-council-appoints-new-top-administrator/">BenitoLink — Hollister City Council appoints new top administrator</a></li>
+                    <li><a href="https://www.facebook.com/cityofhollister/posts/the-city-of-hollister-is-excited-to-welcome-ana-cortez-as-our-new-city-manager-a/1317442733762253/">City of Hollister Facebook — welcome announcement for Ana Cortez as City Manager</a></li>
                     <li><a href="https://benitolink.com/former-employees-file-complaint-against-hollister-city-manager/">BenitoLink — Former employees file complaint against Hollister city manager</a></li>
                     <li><a href="https://www.scu.edu/ethics/media-mentions/stories/hollister-city-managers-use-of-own-recruiting-firm-for-city-hiring-raises-concerns.html">Markkula Center for Applied Ethics — MuniTalent concerns</a></li>
                     <li><a href="https://thesanbenitoblueprint.com/2026/04/06/facing-crisis-of-public-opinion-hollister-to-vote-on-consolidation-of-the-community-development-department/">San Benito Blueprint — Community Development consolidation</a></li>
