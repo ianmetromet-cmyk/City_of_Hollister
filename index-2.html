@@ -1,0 +1,680 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#5b0bb5">
+<meta name="description" content="City of Hollister employees provide the public services residents rely on every day.">
+<title>We Are Hollister | Protect Hollister Public Services</title>
+<link rel="preload" href="https://static.everyaction.com/ea-actiontag/at.js" as="script" crossorigin="anonymous">
+<script src="https://static.everyaction.com/ea-actiontag/at.js" crossorigin="anonymous"></script>
+<style>
+:root{
+  --purple:#5b0bb5;
+  --yellow:#ffde00;
+  --black:#090909;
+  --white:#fff;
+  --gray:#f1f1f1;
+  --muted:#666;
+  --body:clamp(1rem,.35vw + .92rem,1.12rem);
+  --small:clamp(.84rem,.18vw + .80rem,.94rem);
+  --h3:clamp(1.22rem,1vw + 1rem,1.7rem);
+  --h2:clamp(1.65rem,2vw + 1rem,2.5rem);
+  --h1:clamp(2.2rem,5vw,4rem);
+  --display:clamp(3.1rem,9vw,6.1rem);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  color:var(--black);
+  background-color:var(--gray);
+  background-image:radial-gradient(#d4d4d4 1px,transparent 1px);
+  background-size:20px 20px;
+  font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size:var(--body);
+  line-height:1.58;
+}
+img{max-width:100%}
+a{color:inherit}
+h1,h2,h3{
+  margin-top:0;
+  font-family:"Arial Black",Impact,"Segoe UI Black",sans-serif;
+  line-height:1.08;
+  text-transform:uppercase;
+  letter-spacing:-.015em;
+}
+.site-nav{
+  position:sticky;
+  top:0;
+  z-index:50;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:center;
+  gap:.65rem 1.4rem;
+  padding:.92rem 1rem;
+  background:var(--black);
+  color:var(--white);
+  border-bottom:5px solid var(--yellow);
+  font-weight:850;
+  font-size:.9rem;
+  line-height:1.25;
+  text-transform:uppercase;
+  letter-spacing:.035em;
+}
+.site-nav a{color:var(--yellow);text-decoration:none}
+.site-nav a:hover,.site-nav a:focus-visible{text-decoration:underline}
+.site-nav .current{color:var(--white)}
+header{
+  padding:3.2rem 1rem 3rem;
+  text-align:center;
+  background:var(--white);
+  border-bottom:8px solid var(--black);
+}
+.pre-header{
+  font-family:"Arial Black",Impact,sans-serif;
+  font-size:var(--display);
+  font-weight:900;
+  line-height:.92;
+  text-transform:uppercase;
+  letter-spacing:-.04em;
+  text-shadow:4px 4px 0 var(--yellow);
+}
+header h1{
+  max-width:980px;
+  margin:.8rem auto 0;
+  font-size:var(--h1);
+}
+.subtitle{
+  display:inline-block;
+  margin-top:1.2rem;
+  padding:.68rem 1.3rem;
+  background:var(--black);
+  color:var(--yellow);
+  box-shadow:5px 5px 0 var(--purple);
+  font-family:"Arial Black",Impact,sans-serif;
+  font-size:clamp(1rem,1.6vw,1.35rem);
+  line-height:1.2;
+  text-transform:uppercase;
+  text-decoration:none;
+}
+.header-note{
+  max-width:800px;
+  margin:1.5rem auto 0;
+  font-weight:700;
+}
+.group-photo-container{
+  width:min(820px,calc(100% - 1rem));
+  margin:2rem auto 0;
+  padding:9px;
+  background:var(--white);
+  border:5px solid var(--black);
+  box-shadow:9px 9px 0 var(--purple);
+}
+.group-photo-container img{display:block;width:100%;height:auto}
+.layout-wrapper{
+  width:min(980px,calc(100% - 2rem));
+  margin:3rem auto;
+}
+.card,.issues-box,.source-box{
+  margin:0 0 2.3rem;
+  padding:clamp(1.25rem,2.6vw,2.2rem);
+  background:var(--white);
+  border:5px solid var(--black);
+  box-shadow:8px 8px 0 var(--purple);
+}
+.card h2,.issues-box h2,.source-box h2{
+  margin:0 0 1rem;
+  color:var(--purple);
+  font-size:var(--h2);
+}
+.card h3,.issues-box h3,.source-box h3{
+  margin:0 0 .8rem;
+  color:var(--purple);
+  font-size:var(--h3);
+}
+.card p,.issues-box p,.source-box p{margin:.85rem 0}
+.highlight-text{
+  display:inline;
+  padding:.16em .42em;
+  background:var(--purple);
+  color:#fff;
+  font-weight:900;
+  text-transform:uppercase;
+}
+.issues-list{margin:.8rem 0 0;padding-left:1.25rem}
+.issues-list li{margin:.9rem 0}
+.issues-list strong{color:var(--purple)}
+.photo-banner{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:.85rem;
+  margin-bottom:2.4rem;
+}
+.photo-banner figure,.work-figure{
+  margin:0;
+  background:var(--white);
+  border:4px solid var(--black);
+  box-shadow:6px 6px 0 var(--purple);
+}
+.photo-banner img{
+  display:block;
+  width:100%;
+  aspect-ratio:4/3;
+  object-fit:cover;
+  object-position:center top;
+}
+.photo-caption,.work-figure figcaption{
+  display:block;
+  padding:.62rem .7rem;
+  background:var(--yellow);
+  border-top:4px solid var(--black);
+  font-size:var(--small);
+  font-weight:800;
+  line-height:1.35;
+  text-align:center;
+}
+.work-section{margin:3.2rem 0}
+.work-heading{
+  display:inline-block;
+  margin:0 0 1.6rem;
+  padding:.68rem 1.05rem;
+  background:var(--black);
+  color:var(--yellow);
+  box-shadow:6px 6px 0 var(--purple);
+  font-size:var(--h2);
+}
+.work-figure{margin:0 0 2rem}
+.work-figure img{display:block;width:100%;height:auto}
+.work-copy p{font-size:var(--body)}
+.work-subhead{font-size:var(--h3)!important}
+.work-kicker{
+  color:var(--purple);
+  font-weight:900;
+  font-size:clamp(1.08rem,.7vw + 1rem,1.35rem)!important;
+}
+.work-gallery{
+  columns:3;
+  column-gap:.9rem;
+  margin:1rem 0 2.3rem;
+}
+.work-tile{
+  break-inside:avoid;
+  margin:0 0 .9rem;
+}
+.work-tile-btn,.photo-btn{
+  display:block;
+  width:100%;
+  padding:0;
+  border:0;
+  background:none;
+  color:inherit;
+  font:inherit;
+  cursor:pointer;
+}
+.work-tile-btn{
+  border:4px solid var(--black);
+  background:#fff;
+  box-shadow:5px 5px 0 var(--black);
+  transition:transform .16s,box-shadow .16s;
+}
+.work-tile-btn:hover,.work-tile-btn:focus-visible{
+  transform:translate(-2px,-2px);
+  box-shadow:7px 7px 0 var(--purple);
+  outline:3px solid var(--purple);
+  outline-offset:2px;
+}
+.work-tile-btn img{display:block;width:100%;height:auto}
+.work-tile-hint{
+  margin:.6rem 0 .9rem;
+  color:var(--muted);
+  font-size:var(--small);
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+.work-close{
+  margin:2.4rem 0;
+  padding:clamp(1.35rem,2.8vw,2.4rem);
+  background:var(--black);
+  color:#fff;
+  border:5px solid var(--black);
+  box-shadow:8px 8px 0 var(--yellow);
+}
+.work-close strong{color:var(--yellow)}
+.work-close-q{
+  color:var(--yellow);
+  font-family:"Arial Black",Impact,sans-serif;
+  font-size:clamp(1.2rem,1.5vw,1.6rem);
+  line-height:1.25;
+  text-transform:uppercase;
+}
+.profile-link{
+  display:inline-block;
+  margin:0 0 2rem;
+  padding:.72rem 1.05rem;
+  background:var(--black);
+  color:var(--yellow);
+  box-shadow:5px 5px 0 var(--purple);
+  font-family:"Arial Black",Impact,sans-serif;
+  font-size:clamp(.98rem,.7vw + .9rem,1.18rem);
+  text-decoration:none;
+  text-transform:uppercase;
+}
+.profile-link:hover,.profile-link:focus-visible{text-decoration:underline}
+.action-panel{
+  margin:3rem 0 0;
+  padding:clamp(1.4rem,3vw,2.5rem);
+  background:#fff;
+  border:6px solid var(--black);
+  box-shadow:10px 10px 0 var(--purple);
+}
+.action-panel h2{
+  margin:0 0 .8rem;
+  text-align:center;
+  font-size:var(--h2);
+}
+.form-highlight{text-align:center;margin-bottom:1rem}
+.form-highlight span{
+  display:inline-block;
+  padding:.48rem .9rem;
+  background:var(--black);
+  color:var(--yellow);
+  font-weight:900;
+  font-size:.95rem;
+  text-transform:uppercase;
+}
+.action-text{
+  margin:0 auto 1.4rem;
+  max-width:720px;
+  padding:1rem;
+  background:var(--gray);
+  border:3px solid var(--black);
+  text-align:center;
+  font-weight:750;
+}
+.facts{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:1rem;
+  margin:1.3rem 0 0;
+}
+.fact{
+  padding:1.25rem;
+  background:#fafafa;
+  border:4px solid var(--black);
+}
+.fact-number{
+  display:block;
+  margin-bottom:.45rem;
+  color:var(--purple);
+  font-family:"Arial Black",Impact,sans-serif;
+  font-size:clamp(2rem,4vw,3rem);
+  line-height:1;
+}
+.fact-label{
+  display:block;
+  margin-bottom:.5rem;
+  font-weight:900;
+  line-height:1.2;
+  text-transform:uppercase;
+}
+.fact p{margin:0;font-size:.95em}
+.role-strip,.context-note{
+  margin:1.2rem 0 2.2rem;
+  padding:1.3rem 1.5rem;
+  border:5px solid var(--black);
+  font-weight:750;
+}
+.role-strip{
+  background:var(--black);
+  color:#fff;
+  box-shadow:8px 8px 0 var(--yellow);
+}
+.role-strip strong{color:var(--yellow)}
+.context-note{background:var(--yellow)}
+.source-list{padding-left:1.2rem}
+.source-list li{margin:.8rem 0}
+.source-list a{color:var(--purple);font-weight:750}
+.source-note{color:var(--muted);font-size:var(--small)}
+.cta{
+  padding:clamp(1.5rem,3vw,2.4rem);
+  text-align:center;
+  background:var(--purple);
+  color:#fff;
+  border:5px solid var(--black);
+  box-shadow:8px 8px 0 var(--yellow);
+}
+.cta h2{font-size:var(--h2)}
+.button-row{display:flex;flex-wrap:wrap;justify-content:center;gap:.8rem}
+.button{
+  display:inline-block;
+  padding:.7rem 1rem;
+  background:var(--black);
+  color:var(--yellow);
+  border:3px solid var(--black);
+  font-weight:900;
+  text-decoration:none;
+  text-transform:uppercase;
+}
+.lightbox{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:1000;
+  padding:1.5rem 1rem;
+  background:rgba(9,9,9,.95);
+  align-items:center;
+  justify-content:center;
+}
+.lightbox.is-open{display:flex}
+.lightbox-inner{
+  width:100%;
+  max-width:1100px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+.lightbox-img{
+  display:block;
+  width:auto;
+  max-width:100%;
+  height:auto;
+  max-height:74vh;
+  border:5px solid #fff;
+}
+.lightbox-caption{
+  max-width:680px;
+  margin:1rem auto 0;
+  color:#fff;
+  font-size:1rem;
+  line-height:1.45;
+  text-align:center;
+}
+.lightbox-counter{
+  margin:.65rem 0 0;
+  color:var(--yellow);
+  font-size:.82rem;
+  font-weight:900;
+  letter-spacing:.12em;
+}
+.lightbox-btn{
+  position:absolute;
+  width:50px;
+  height:50px;
+  border:4px solid var(--black);
+  background:var(--yellow);
+  color:var(--black);
+  font-family:"Arial Black",Impact,sans-serif;
+  font-size:1.2rem;
+  cursor:pointer;
+}
+.lightbox-close{top:1rem;right:1rem}
+.lightbox-prev{left:1rem;top:50%;transform:translateY(-50%)}
+.lightbox-next{right:1rem;top:50%;transform:translateY(-50%)}
+footer{
+  margin-top:4rem;
+  padding:2.5rem 1rem;
+  background:var(--black);
+  color:#fff;
+  border-top:8px solid var(--yellow);
+  text-align:center;
+}
+footer strong{color:var(--yellow)}
+@media(max-width:820px){
+  .photo-banner{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .work-gallery{columns:2}
+  .facts{grid-template-columns:1fr}
+  .site-nav{font-size:.82rem}
+}
+@media(max-width:560px){
+  html{font-size:15px}
+  .layout-wrapper{width:min(100% - 1.15rem,980px)}
+  .work-gallery{columns:1}
+  .photo-banner{grid-template-columns:1fr 1fr}
+  header{padding:2.5rem .75rem}
+  .card,.issues-box,.source-box{padding:1.25rem}
+  .lightbox-prev,.lightbox-next{top:auto;bottom:1rem;transform:none}
+}
+</style>
+</head>
+<body>
+<nav class="site-nav" aria-label="Site navigation">
+  <span class="current" aria-current="page">We Are Hollister</span>
+  <a href="cortez.html">The Choices Facing Hollister</a>
+  <a href="https://www.seiu521.org/wearehollister">Add Your Name</a>
+</nav>
+
+<header>
+  <div class="pre-header">WE ARE HOLLISTER</div>
+  <h1>Protect Hollister Public Services</h1>
+  <div class="group-photo-container">
+    <img src="hollister.jpg" alt="City of Hollister workers and SEIU Local 521 members" width="1200" height="497">
+  </div>
+  <a class="subtitle" href="https://www.seiu521.org/wearehollister">Add your name in less than one minute</a>
+</header>
+
+<main class="layout-wrapper">
+  <a class="profile-link" href="cortez.html">Explore the Choices Facing Hollister →</a>
+
+  <div class="photo-banner" aria-label="City of Hollister departments">
+    <figure><img src="planning.jpg" alt="Planning Department staff"><span class="photo-caption">Planning</span></figure>
+    <figure><img src="sanitation.jpg" alt="Sanitation and Storm staff"><span class="photo-caption">Sanitation</span></figure>
+    <figure><img src="ssas.jpg" alt="Administrative and engineering staff"><span class="photo-caption">Admin / Engineering</span></figure>
+    <figure><img src="airport.jpg" alt="Airport staff"><span class="photo-caption">Airport</span></figure>
+    <figure><img src="streets.jpg" alt="Streets crew"><span class="photo-caption">Streets</span></figure>
+  </div>
+
+  <section class="card">
+    <p><span class="highlight-text">City of Hollister employees</span> are the backbone of the services residents rely on every day.</p>
+    <p>City services and good local jobs are under pressure as Hollister weighs staffing reductions, reorganizations and different ways of providing public services. Workers are asking that service levels, safety, response times, costs and local knowledge be considered before permanent changes are made.</p>
+  </section>
+
+  <section class="issues-box">
+    <h2>Maintaining the city gets harder when:</h2>
+    <ul class="issues-list">
+      <li>Fewer <strong>frontline workers</strong> are expected to cover the same essential work.</li>
+      <li>Departments are reorganized or responsibilities are shifted without clear <strong>service-level analysis</strong>.</li>
+      <li>Outside service models are considered without a complete comparison of <strong>cost, accountability and local knowledge</strong>.</li>
+    </ul>
+  </section>
+
+  <section class="work-section" aria-labelledby="street-heading">
+    <h2 class="work-heading" id="street-heading">The work you don't see</h2>
+    <figure class="work-figure">
+      <img src="photos/crosswalk-traffic.jpg" alt="A City of Hollister street worker repaints a crosswalk while traffic passes nearby" loading="lazy">
+      <figcaption>Felix Manuel Chavira repaints a crosswalk on Nash Road. Street crews work within feet of moving traffic.</figcaption>
+    </figure>
+    <div class="card work-copy">
+      <p>Sometimes a row of cones and a reflective vest are all that separate the crew from traffic. One worker operates the equipment while another watches approaching vehicles. Hot materials, moving cars and changing conditions make experience and teamwork essential.</p>
+    </div>
+    <figure class="work-figure">
+      <img src="photos/crew-portrait.jpg" alt="Jason, Andres and Felix with a City of Hollister work truck and equipment trailer" loading="lazy">
+      <figcaption>Jason, Andres and Felix. Between them, decades of experience on Hollister's streets.</figcaption>
+    </figure>
+    <div class="card work-copy">
+      <h3 class="work-subhead">Fewer workers, more pressure</h3>
+      <p>Public work does not shrink because a budget does. Residents still expect someone to respond when a roadway needs attention, equipment fails, or an emergency interrupts routine maintenance.</p>
+      <p>When fewer workers cover the same amount of work, routine maintenance can be postponed and small problems can become more expensive problems later. Experience is what helps crews recognize risk early and keep the work safe.</p>
+    </div>
+    <p class="work-tile-hint">Tap any photo to see it larger</p>
+    <div class="work-gallery">
+      <div class="work-tile"><button class="work-tile-btn" data-gallery="streets" data-full="photos/felix-thermolazer.jpg" data-caption="Crosswalk striping requires heat, timing and constant awareness of passing traffic."><img src="photos/felix-thermolazer-thumb.jpg" alt="Felix operating a ThermoLazer striping machine" loading="lazy"></button></div>
+      <div class="work-tile"><button class="work-tile-btn" data-gallery="streets" data-full="photos/medina-crossing.jpg" data-caption="The crew repaints a crossing while traffic continues through the intersection."><img src="photos/medina-crossing-thumb.jpg" alt="Street crew repainting a crosswalk" loading="lazy"></button></div>
+      <div class="work-tile"><button class="work-tile-btn" data-gallery="streets" data-full="photos/setting-cones.jpg" data-caption="Cones go out before the work starts and come back in when it is finished."><img src="photos/setting-cones-thumb.jpg" alt="Street worker carrying traffic cones" loading="lazy"></button></div>
+      <div class="work-tile"><button class="work-tile-btn" data-gallery="streets" data-full="photos/felix-applicator.jpg" data-caption="Hollister's crosswalks are repainted one pass at a time."><img src="photos/felix-applicator-thumb.jpg" alt="Felix guiding a thermoplastic applicator" loading="lazy"></button></div>
+      <div class="work-tile"><button class="work-tile-btn" data-gallery="streets" data-full="photos/crew-member-street.jpg" data-caption="A vest and a line of cones separate the crew from the road."><img src="photos/crew-member-street-thumb.jpg" alt="Street worker standing between traffic cones" loading="lazy"></button></div>
+      <div class="work-tile"><button class="work-tile-btn" data-gallery="streets" data-full="photos/applicator-detail.jpg" data-caption="The equipment has to lay material at the right thickness and temperature."><img src="photos/applicator-detail-thumb.jpg" alt="Close view of street striping equipment" loading="lazy"></button></div>
+    </div>
+  </section>
+
+  <section class="work-section" aria-labelledby="water-heading">
+    <h2 class="work-heading" id="water-heading">Water does not wait</h2>
+    <figure class="work-figure">
+      <img src="photos/water-posed-duo.jpg" alt="Rodrigo Aguliera and Jacob Gomer of the City of Hollister water crew" loading="lazy">
+      <figcaption>Rodrigo Aguliera and Jacob Gomer. The people who know this system are already here.</figcaption>
+    </figure>
+    <div class="card work-copy">
+      <p>Water work is precise, physical and unforgiving. Crews maintain valves, hydrants, lines and field records while keeping service moving around them. Local system knowledge matters when pressure drops, a line fails, or a repair has to happen quickly.</p>
+    </div>
+    <figure class="work-figure">
+      <img src="photos/water-jorge-john.jpg" alt="Jorge Torres and John Sanchez maintaining Hollister water infrastructure" loading="lazy">
+      <figcaption>Jorge Torres and John Sanchez. Different tasks, one public water system.</figcaption>
+    </figure>
+    <div class="card work-copy">
+      <p>Water crews perform many different tasks in a single shift: flushing hydrants, turning valves, seating covers, documenting field conditions and maintaining equipment. Staffing choices determine how much backup and response capacity remains when something goes wrong.</p>
+    </div>
+    <p class="work-tile-hint">Tap any photo to see it larger</p>
+    <div class="work-gallery">
+      <div class="work-tile"><button class="work-tile-btn" data-gallery="water" data-full="photos/water-hydrant.jpg" data-caption="Hydrant flushing requires pressure, flow and field judgment."><img src="photos/water-hydrant-thumb.jpg" alt="Water worker flushing a hydrant" loading="lazy"></button></div>
+      <div class="work-tile"><button class="work-tile-btn" data-gallery="water" data-full="photos/water-valve-over.jpg" data-caption="Turning a street valve is specialized work that keeps the system moving."><img src="photos/water-valve-over-thumb.jpg" alt="Water worker operating a street valve" loading="lazy"></button></div>
+      <div class="work-tile"><button class="work-tile-btn" data-gallery="water" data-full="photos/water-valve-smile.jpg" data-caption="Field work is tracked and documented as crews maintain the system."><img src="photos/water-valve-smile-thumb.jpg" alt="Water worker recording field data" loading="lazy"></button></div>
+      <div class="work-tile"><button class="work-tile-btn" data-gallery="water" data-full="photos/water-jorge.jpg" data-caption="Jorge Torres at the hydrant."><img src="photos/water-jorge-thumb.jpg" alt="Jorge Torres working on a hydrant" loading="lazy"></button></div>
+      <div class="work-tile"><button class="work-tile-btn" data-gallery="water" data-full="photos/water-john.jpg" data-caption="John Sanchez on the valve key."><img src="photos/water-john-thumb.jpg" alt="John Sanchez with a valve key" loading="lazy"></button></div>
+      <div class="work-tile"><button class="work-tile-btn" data-gallery="water" data-full="photos/water-jorge-john-cover.jpg" data-caption="Jorge and John seat a water-system cover in the street."><img src="photos/water-jorge-john-cover-thumb.jpg" alt="Jorge and John positioning a water cover" loading="lazy"></button></div>
+    </div>
+  </section>
+
+  <section class="work-section" aria-labelledby="engineering-heading">
+    <h2 class="work-heading" id="engineering-heading">Engineering does not cut corners</h2>
+    <figure class="work-figure">
+      <img src="photos/admin-tania.jpg" alt="Tania Gonzalez reviewing project paperwork at her desk" loading="lazy">
+      <figcaption>Tania Gonzalez knows Hollister's projects and procedures before a job ever reaches the street.</figcaption>
+    </figure>
+    <div class="card work-copy">
+      <p>Tania Gonzalez handles detailed work that has to happen before a city project reaches the street. Specifications, schedules, records and project history are the quiet checks that help catch problems before they become expensive field mistakes.</p>
+    </div>
+    <p class="work-tile-hint">Tap any photo to see it larger</p>
+    <div class="work-gallery">
+      <div class="work-tile"><button class="work-tile-btn" data-gallery="admin" data-full="photos/admin-desk-smile.jpg" data-caption="Engineering preparation starts long before cones hit the street."><img src="photos/admin-desk-smile-thumb.jpg" alt="Tania Gonzalez at her desk" loading="lazy"></button></div>
+      <div class="work-tile"><button class="work-tile-btn" data-gallery="admin" data-full="photos/admin-monitors.jpg" data-caption="Engineering detail is part of keeping public work accurate and accountable."><img src="photos/admin-monitors-thumb.jpg" alt="Tania working at dual monitors" loading="lazy"></button></div>
+      <div class="work-tile"><button class="work-tile-btn" data-gallery="admin" data-full="photos/admin-papers.jpg" data-caption="Records and project paperwork keep public work moving."><img src="photos/admin-papers-thumb.jpg" alt="Tania holding project paperwork" loading="lazy"></button></div>
+    </div>
+  </section>
+
+  <section class="work-section" aria-labelledby="storm-heading">
+    <h2 class="work-heading" id="storm-heading">When the drains fail</h2>
+    <figure class="work-figure">
+      <img src="photos/storm-juan.jpg" alt="Jose Munoz beside City of Hollister storm equipment" loading="lazy">
+      <figcaption>Jose Munoz. Stormwater work is heavy, specialized and built on knowledge of the system beneath the city.</figcaption>
+    </figure>
+    <figure class="work-figure">
+      <img src="photos/storm-arthur.jpg" alt="Arthur Hernandez beside City of Hollister storm equipment" loading="lazy">
+      <figcaption>Arthur Hernandez knows the equipment and the infrastructure beneath Hollister's streets.</figcaption>
+    </figure>
+    <div class="card work-copy">
+      <p>Sanitation and storm crews maintain lines, lift stations and specialized equipment that help prevent backups and flooding. Some infrastructure is old and complex. Knowing where problems are likely to occur and how to respond safely comes from hands-on experience.</p>
+    </div>
+    <p class="work-tile-hint">Tap any photo to see it larger</p>
+    <div class="work-gallery">
+      <div class="work-tile"><button class="work-tile-btn" data-gallery="storm" data-full="photos/storm-pipe-crew.jpg" data-caption="Storm work connects underground infrastructure to specialized cleaning and vacuum equipment."><img src="photos/storm-pipe-crew-thumb.jpg" alt="Storm worker at an open vault" loading="lazy"></button></div>
+      <div class="work-tile"><button class="work-tile-btn" data-gallery="storm" data-full="photos/storm-vault-lean.jpg" data-caption="Crews work directly with the city's underground infrastructure."><img src="photos/storm-vault-lean-thumb.jpg" alt="Storm worker leaning into a utility vault" loading="lazy"></button></div>
+      <div class="work-tile"><button class="work-tile-btn" data-gallery="storm" data-full="photos/storm-hose-reel.jpg" data-caption="Specialized equipment requires trained operators and regular maintenance."><img src="photos/storm-hose-reel-thumb.jpg" alt="Storm worker beside Vactor equipment" loading="lazy"></button></div>
+    </div>
+  </section>
+
+  <section class="work-section" aria-labelledby="people-heading">
+    <div class="card work-copy">
+      <h3 class="work-subhead" id="people-heading">The people who keep Hollister running</h3>
+      <p>Hollister is not maintained by spreadsheets or organizational charts. It runs because experienced people show up and do the work.</p>
+      <p>Residents understand that cities face difficult budget choices. The question is how those choices affect service capacity, response times, public accountability and the experience needed to maintain aging infrastructure safely.</p>
+      <p>Public employees carry knowledge that is difficult to replace quickly. They know the equipment, the streets, the systems and the history behind recurring problems.</p>
+      <p class="work-kicker">Knowledge like this is built over years and can be lost in a single budget cycle.</p>
+    </div>
+
+    <div class="work-close">
+      <p><strong>City of Hollister employees are the backbone of our community.</strong> They repair streets, maintain water and sewer systems, review plans, keep records moving and respond when public infrastructure fails.</p>
+      <p class="work-close-q">Hollister is deciding more than a budget. It is deciding how much service capacity and local knowledge it keeps in-house.</p>
+    </div>
+  </section>
+
+  <section class="action-panel" id="take-action">
+    <h2>Take Action</h2>
+    <div class="form-highlight"><span>It takes less than one minute</span></div>
+    <div class="action-text">Send a message asking the City Council to protect public services and listen to the workers who provide them.</div>
+    <div class="form-wrapper">
+      <div class="ngp-form"
+        data-form-url="https://advocator.ngpvan.com/https%3a%2f%2fsecure.ngpvan.com%2fv1%2fForms%2fCgVEKRu5mkWI2-Rvv1f0hg2/ngpForm"
+        data-custom-css="https://nvlupin.blob.core.windows.net/designs/CustomStylesheet_1dba44432beaaa3f4eb088e6527488df22ada213fb31b1a0ed925a394bc15367.css"
+        data-fastaction-endpoint="https://fastaction.ngpvan.com"
+        data-inline-errors="true"
+        data-fastaction-nologin="true"
+        data-mobile-autofocus="false"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <strong>Protect Hollister Public Services</strong>
+  <div>Built around the people who keep the city running.</div>
+</footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" aria-hidden="true">
+  <button class="lightbox-btn lightbox-close" id="lightbox-close" aria-label="Close photo viewer">✕</button>
+  <button class="lightbox-btn lightbox-prev" id="lightbox-prev" aria-label="Previous photo">‹</button>
+  <button class="lightbox-btn lightbox-next" id="lightbox-next" aria-label="Next photo">›</button>
+  <div class="lightbox-inner">
+    <img class="lightbox-img" id="lightbox-img" src="" alt="">
+    <p class="lightbox-caption" id="lightbox-caption"></p>
+    <p class="lightbox-counter" id="lightbox-counter"></p>
+  </div>
+</div>
+<script>
+(function(){
+  var buttons=[].slice.call(document.querySelectorAll('[data-full]'));
+  if(!buttons.length) return;
+  var groups={};
+  buttons.forEach(function(btn){
+    var name=btn.getAttribute('data-gallery')||'default';
+    (groups[name]||(groups[name]=[])).push(btn);
+  });
+  var box=document.getElementById('lightbox'),
+      img=document.getElementById('lightbox-img'),
+      cap=document.getElementById('lightbox-caption'),
+      count=document.getElementById('lightbox-counter'),
+      closeBtn=document.getElementById('lightbox-close'),
+      prevBtn=document.getElementById('lightbox-prev'),
+      nextBtn=document.getElementById('lightbox-next'),
+      current=[],index=0,lastFocused=null;
+  function alt(btn){
+    return btn.getAttribute('data-alt')||(btn.querySelector('img')?btn.querySelector('img').alt:'');
+  }
+  function show(i){
+    index=(i+current.length)%current.length;
+    var b=current[index];
+    img.src=b.getAttribute('data-full');
+    img.alt=alt(b);
+    cap.textContent=b.getAttribute('data-caption')||'';
+    count.textContent=(index+1)+' of '+current.length;
+  }
+  function open(group,i){
+    current=group; lastFocused=document.activeElement; show(i);
+    box.classList.add('is-open'); box.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden'; closeBtn.focus();
+  }
+  function close(){
+    box.classList.remove('is-open'); box.setAttribute('aria-hidden','true');
+    document.body.style.overflow=''; img.src='';
+    if(lastFocused) lastFocused.focus();
+  }
+  buttons.forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var name=btn.getAttribute('data-gallery')||'default';
+      open(groups[name],groups[name].indexOf(btn));
+    });
+  });
+  closeBtn.addEventListener('click',close);
+  prevBtn.addEventListener('click',function(){show(index-1)});
+  nextBtn.addEventListener('click',function(){show(index+1)});
+  box.addEventListener('click',function(e){if(e.target===box) close()});
+  document.addEventListener('keydown',function(e){
+    if(!box.classList.contains('is-open')) return;
+    if(e.key==='Escape') close();
+    if(e.key==='ArrowLeft') show(index-1);
+    if(e.key==='ArrowRight') show(index+1);
+  });
+})();
+</script>
+</body>
+</html>
